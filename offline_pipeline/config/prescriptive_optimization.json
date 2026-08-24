@@ -1,0 +1,61 @@
+{
+  "update_window_minutes": 10,
+  "spatial_zone_m": 500,
+  "candidate_score_minimum": 0.4,
+  "capacities_per_window": {
+    "warning": 8,
+    "patrol": 3,
+    "emergency": 1
+  },
+  "maximum_patrols_per_road": 2,
+  "minimum_patrol_separation_m": 1000,
+  "ranking_alert_threshold": 0.6,
+  "incremental_mitigation": {
+    "warning": 0.1,
+    "patrol": 0.45,
+    "emergency": 0.3
+  },
+  "scenarios": {
+    "loss_cost_ratio_2000": {
+      "accident_loss": 2000.0,
+      "action_cost": {
+        "warning": 1.0,
+        "patrol": 5.0,
+        "emergency": 15.0
+      },
+      "false_alarm_penalty": {
+        "warning": 0.5,
+        "patrol": 3.0,
+        "emergency": 10.0
+      }
+    },
+    "loss_cost_ratio_5000": {
+      "accident_loss": 5000.0,
+      "action_cost": {
+        "warning": 1.0,
+        "patrol": 5.0,
+        "emergency": 15.0
+      },
+      "false_alarm_penalty": {
+        "warning": 0.5,
+        "patrol": 3.0,
+        "emergency": 10.0
+      }
+    },
+    "loss_cost_ratio_10000": {
+      "accident_loss": 10000.0,
+      "action_cost": {
+        "warning": 1.0,
+        "patrol": 5.0,
+        "emergency": 15.0
+      },
+      "false_alarm_penalty": {
+        "warning": 0.5,
+        "patrol": 3.0,
+        "emergency": 10.0
+      }
+    }
+  },
+  "robust_probability_radius": 0.03,
+  "interpretation_boundary": "Accident-loss/action-cost ratios and mitigation rates are normalized sensitivity parameters. Each independent accident contributes loss once, while operational actions are charged per dispatch window. The resulting cost is a decision proxy, not an observed causal intervention effect."
+}

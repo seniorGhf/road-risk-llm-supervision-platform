@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1630">
+  <title>大模型道路路域风险监管平台</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 42 42"><path d="M8 32 18 8h7l9 24h-7l-2-6H16l-2 6H8Zm10-12h5l-2.4-7L18 20Z"/><path class="brand-route" d="M6 35c7-7 14 3 29-8"/></svg>
+        </div>
+        <div><strong>路域智监</strong><span>ROAD RISK SUPERVISOR</span></div>
+      </div>
+      <nav class="nav-list" aria-label="主导航">
+        <button class="nav-item active" data-page="overview"><span class="nav-icon">⌂</span><span>监管总览</span></button>
+        <button class="nav-item" data-page="monitor"><span class="nav-icon">⌁</span><span>风险监测</span><em id="navAlertCount">0</em></button>
+        <button class="nav-item" data-page="assessment"><span class="nav-icon">◎</span><span>监督研判</span></button>
+        <button class="nav-item" data-page="llm"><span class="nav-icon">✦</span><span>大模型复核</span></button>
+        <button class="nav-item" data-page="dispatch"><span class="nav-icon">⇄</span><span>资源调度</span></button>
+        <button class="nav-item" data-page="governance"><span class="nav-icon">◇</span><span>模型治理</span></button>
+        <button class="nav-item" data-page="audit"><span class="nav-icon">✓</span><span>处置闭环</span></button>
+      </nav>
+      <div class="sidebar-foot">
+        <div class="mode-chip"><i></i><span>历史因果回放</span></div>
+        <p>未来结果在决策时刻隐藏<br>不连接生产控制设备</p>
+        <div class="version">平台版本 <b>V1.0.0</b></div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="menuToggle" aria-label="打开导航">☰</button>
+        <div>
+          <h1 id="pageTitle">监管总览</h1>
+          <p id="pageSubtitle">全路网风险筛查、复核与处置态势</p>
+        </div>
+        <div class="topbar-actions">
+          <div class="replay-clock"><span>候选数据快照</span><strong id="snapshotClock">—</strong></div>
+          <button class="icon-button" id="refreshButton" title="刷新数据">↻</button>
+          <div class="operator"><span class="avatar">值</span><div><b>值班员</b><small>人工复核席</small></div></div>
+        </div>
+      </header>
+
+      <div class="notice-bar" id="boundaryNotice">
+        <span class="notice-icon">!</span>
+        <span><b>监管边界：</b>监督分数用于候选复核；事故类型、严重程度和处置动作均须人工确认。</span>
+        <button id="dismissNotice" aria-label="关闭提示">×</button>
+      </div>
+
+      <section class="page active" id="page-overview">
+        <div class="kpi-grid" id="overviewKpis"></div>
+        <div class="risk-intelligence-grid">
+          <article class="panel spatial-risk-panel">
+            <div class="panel-head spatial-panel-head">
+              <div><span class="eyebrow">全天路网空间感知</span><h2>空间路段风险动态拓扑</h2></div>
+              <div class="spatial-status"><i></i><span>288 个时刻自动演化</span></div>
+            </div>
+            <div class="spatial-map-toolbar">
+              <div class="spatial-legend"><span><i class="risk-low"></i>低风险</span><span><i class="risk-mid"></i>中风险</span><span><i class="risk-high"></i>高风险</span></div>
+              <span id="spatialMapSummary">正在加载 2025-09-01 全天路网风险…</span>
+            </div>
+            <div class="spatial-risk-map" id="networkSpatialMap" aria-label="全路网空间路段风险图"></div>
+            <div class="spatial-map-foot"><span>真实第六章 v4 主模型结果</span><span>每 5 分钟一帧</span><span>标题区域已裁除</span><span>支持自动播放、暂停及逐时拖动</span></div>
+          </article>
+
+          <div class="risk-intelligence-side">
+            <article class="panel network-candidate-panel">
+              <div class="panel-head">
+                <div><span class="eyebrow">近 30 分钟</span><h2>优先候选路段</h2></div>
+                <button class="text-button" data-goto="monitor">查看完整清单 →</button>
+              </div>
+              <div class="network-candidate-scroll">
+                <table class="network-candidate-table">
+                  <thead><tr><th>排名</th><th>路段位置</th><th>监督分数</th><th>风险等级</th><th>类型假设</th><th>复核时窗</th></tr></thead>
+                  <tbody id="networkCandidateTable"></tbody>
+                </table>
+              </div>
+            </article>
+
+            <article class="panel network-response-panel">
+              <div class="response-ribbon"><span>✦</span> 大模型输出 · 结构化响应</div>
+              <div class="network-response-grid">
+                <section class="priority-segment-card">
+                  <div class="response-section-title"><span>◎</span><h2>重点路段</h2></div>
+                  <div id="networkPriorityDetail"></div>
+                </section>
+                <section class="authorized-actions-card">
+                  <div class="response-section-title"><span>✓</span><h2>授权处置建议</h2><em>均待人工确认</em></div>
+                  <div id="networkAuthorizedActions"></div>
+                </section>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="lower-grid">
+          <article class="panel evidence-panel">
+            <div class="panel-head"><div><span class="eyebrow">重点案例</span><h2>紧凑证据包</h2></div><span class="status-pill blue">待人工复核</span></div>
+            <div id="evidencePacket"></div>
+          </article>
+          <article class="panel compression-panel">
+            <div class="panel-head"><div><span class="eyebrow">数据压缩</span><h2>从风险流到复核清单</h2></div></div>
+            <div id="pipelineChart"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="page" id="page-monitor">
+        <div class="page-intro">
+          <div><span class="eyebrow">候选事件监管</span><h2>风险监测清单</h2><p>显示当前历史回放时窗内的候选路段。监督分数达到 0.60 后进入人工复核。</p></div>
+          <button class="primary-button" id="monitorToAssess">选择首条并研判</button>
+        </div>
+        <div class="filter-bar">
+          <label class="search-field"><span>⌕</span><input id="monitorSearch" placeholder="搜索路段编号或桩号"></label>
+          <label>道路<select id="roadFilter"><option value="all">全部道路</option><option value="G9411">G9411</option><option value="S5">S5</option></select></label>
+          <label>方向<select id="directionFilter"><option value="all">全部方向</option><option value="1">方向 1</option><option value="0">方向 0</option></select></label>
+          <label>风险等级<select id="levelFilter"><option value="all">全部等级</option><option value="高">高风险</option><option value="中">中风险</option><option value="低">观察</option></select></label>
+          <span class="result-count" id="monitorCount">0 条</span>
+        </div>
+        <article class="panel table-panel">
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th>复核优先级</th><th>道路与方向</th><th>桩号</th><th>第一阶段</th><th>监督分数</th><th>风险等级</th><th>校准概率</th><th>状态</th><th>操作</th></tr></thead>
+              <tbody id="monitorTable"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="page" id="page-assessment">
+        <div class="page-intro">
+          <div><span class="eyebrow">真实蒸馏模型</span><h2>监督风险研判</h2><p>调整核心时空特征并调用冻结的 22 特征 LightGBM 学生模型。未显示字段沿用当前证据包。</p></div>
+          <span class="model-ready" id="modelReady"><i></i>正在检查模型</span>
+        </div>
+        <div class="assessment-grid">
+          <article class="panel form-panel">
+            <div class="panel-head"><div><span class="eyebrow">输入证据</span><h2>决策时刻及过去信息</h2></div><button class="text-button" id="resetAssessment">恢复案例</button></div>
+            <form id="assessmentForm">
+              <div class="form-section"><h3>位置与基础风险</h3><div class="form-grid">
+                <label>道路<select id="assessRoad"><option value="G9411">G9411</option><option value="S5">S5</option></select></label>
+                <label>方向<select name="direction_code"><option value="1">方向 1</option><option value="0">方向 0</option></select></label>
+                <label>第一阶段风险<input type="number" name="current_risk_probability" min="0" max="1" step="0.001"></label>
+                <label>事故风险分量<input type="number" name="collision_risk_value" min="0" max="1" step="0.001"></label>
+              </div></div>
+              <div class="form-section"><h3>时间记忆</h3><div class="form-grid">
+                <label>5 分钟前风险<input type="number" name="risk_lag_5m" min="0" max="1" step="0.001"></label>
+                <label>30 分钟前风险<input type="number" name="risk_lag_30m" min="0" max="1" step="0.001"></label>
+                <label>过去 30 分钟均值<input type="number" name="risk_mean_past_30m" min="0" max="1" step="0.001"></label>
+                <label>30 分钟风险变化<input type="number" name="risk_change_30m" min="-1" max="1" step="0.001"></label>
+              </div></div>
+              <div class="form-section"><h3>有向空间上下文</h3><div class="form-grid">
+                <label>上游 300 米均值<input type="number" name="upstream_mean_300m" min="0" max="1" step="0.001"></label>
+                <label>下游 300 米均值<input type="number" name="downstream_mean_300m" min="0" max="1" step="0.001"></label>
+                <label>500 米邻域峰值<input type="number" name="neighborhood_max_500m" min="0" max="1" step="0.001"></label>
+                <label>600 米空间梯度<input type="number" name="spatial_gradient_600m" min="-1" max="1" step="0.001"></label>
+              </div></div>
+              <button class="primary-button full" type="submit">运行监督模型</button>
+            </form>
+          </article>
+          <div class="result-stack">
+            <article class="panel score-panel">
+              <div class="panel-head"><div><span class="eyebrow">模型输出</span><h2>监督分数</h2></div><span class="status-pill" id="assessmentStatus">等待计算</span></div>
+              <div class="gauge-wrap"><svg id="scoreGauge" viewBox="0 0 240 150" aria-label="风险监督分数仪表"><path class="gauge-track" d="M30 125 A90 90 0 0 1 210 125"/><path class="gauge-fill" id="gaugeFill" d="M30 125 A90 90 0 0 1 210 125"/><line id="thresholdMark" x1="0" y1="0" x2="0" y2="0"/><text id="gaugeScore" x="120" y="112">—</text><text x="120" y="134" class="gauge-caption">阈值 0.60</text></svg></div>
+              <div class="score-meta"><div><span>校准概率</span><b id="calibratedProbability">—</b></div><div><span>结果语义</span><b id="scoreSemantics">待运行</b></div></div>
+            </article>
+            <article class="panel evidence-result-panel"><div class="panel-head"><div><span class="eyebrow">透明证据</span><h2>主要输入参照</h2></div></div><div id="assessmentEvidence" class="evidence-bars empty-state">运行模型后显示时空证据</div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="page-llm">
+        <div class="page-intro">
+          <div><span class="eyebrow">政策约束编排</span><h2>大模型结构化复核</h2><p>大模型只处理已筛选的紧凑证据包，并且只能从授权政策动作中提出建议。</p></div>
+          <span class="status-pill amber">人工安全门开启</span>
+        </div>
+        <div class="llm-grid">
+          <article class="panel packet-panel">
+            <div class="panel-head"><div><span class="eyebrow">输入</span><h2>复核证据包</h2></div><span class="packet-size">约 205 tokens</span></div>
+            <div class="packet-location"><strong id="llmSegment">G9411 · K137.370</strong><span>未来结果已隐藏</span></div>
+            <div class="packet-data" id="llmPacket"></div>
+            <div class="form-grid compact">
+              <label>事故类型假设<select id="typeHypothesis"><option value="翻车">翻车</option><option value="碰撞">碰撞</option><option value="追尾">追尾</option><option value="刮擦">刮擦</option><option value="失火">失火</option><option value="其他">其他</option></select></label>
+              <label>天气<select id="llmWeather"><option value="Clear">晴</option><option value="Overcast">阴</option><option value="Rain">雨</option><option value="Fog">雾</option></select></label>
+              <label>中位速度（km/h）<input id="llmSpeed" type="number" min="0" max="180" value="23.8"></label>
+              <label>上/下游交通量<input id="llmTraffic" value="102 / 98"></label>
+            </div>
+            <button class="primary-button full" id="runLlmReview">生成结构化复核建议</button>
+          </article>
+          <article class="panel llm-output-panel">
+            <div class="panel-head"><div><span class="eyebrow">输出</span><h2>人工复核工作单</h2></div><span class="engine-tag" id="llmEngine">等待生成</span></div>
+            <div id="llmOutput" class="empty-state tall"><div class="empty-orb">✦</div><b>尚未生成复核工作单</b><span>模型不会直接下发任何控制命令</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="page" id="page-dispatch">
+        <div class="page-intro"><div><span class="eyebrow">处置组合建议</span><h2>容量约束资源调度</h2><p>根据当前候选队列和容量上限生成单个回放时窗的建议组合，不把每个高风险点都等同于调度动作。</p></div><span class="status-pill blue">模拟模式</span></div>
+        <div class="dispatch-grid">
+          <article class="panel dispatch-config"><div class="panel-head"><div><span class="eyebrow">约束设置</span><h2>当期可用资源</h2></div></div>
+            <form id="dispatchForm">
+              <label>损失—成本情景<select name="scenario"><option value="loss_cost_ratio_2000">低损失情景（2000）</option><option value="loss_cost_ratio_5000" selected>中损失情景（5000）</option><option value="loss_cost_ratio_10000">高损失情景（10000）</option></select></label>
+              <div class="capacity-inputs"><label><span>预警容量</span><input name="warning_capacity" type="number" min="0" max="20" value="8"></label><label><span>巡查容量</span><input name="patrol_capacity" type="number" min="0" max="20" value="3"></label><label><span>应急容量</span><input name="emergency_capacity" type="number" min="0" max="20" value="1"></label></div>
+              <label>同路同向巡查最小间隔（米）<input name="minimum_patrol_separation_m" type="number" min="0" max="10000" step="100" value="1000"></label>
+              <button class="primary-button full" type="submit">生成调度建议</button>
+            </form>
+            <div class="boundary-card"><b>解释边界</b><p>成本比例和缓解率来自敏感性分析。当前页面只用于比较候选组合，不证明处置会产生相应事故减少效果。</p></div>
+          </article>
+          <article class="panel dispatch-results"><div class="panel-head"><div><span class="eyebrow">建议组合</span><h2>资源配置结果</h2></div><button class="text-button" id="sendToAudit" disabled>提交人工确认</button></div><div id="dispatchSummary" class="dispatch-summary"></div><div id="dispatchActions" class="empty-state tall">设置资源容量后运行调度模拟</div></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-governance">
+        <div class="page-intro"><div><span class="eyebrow">模型与证据审计</span><h2>模型治理中心</h2><p>集中查看性能、资源、大小模型基准、验证结果与不可越过的安全边界。</p></div><span class="status-pill green">冻结结果 19 / 19</span></div>
+        <div class="governance-kpis" id="governanceKpis"></div>
+        <div class="governance-grid">
+          <article class="panel benchmark-panel"><div class="panel-head"><div><span class="eyebrow">63 案例统一契约</span><h2>本地大模型基准</h2></div></div><div id="benchmarkChart"></div></article>
+          <article class="panel validation-panel"><div class="panel-head"><div><span class="eyebrow">可审计性</span><h2>项目验证项</h2></div></div><div id="validationChecks"></div></article>
+        </div>
+        <article class="panel boundaries-panel"><div class="panel-head"><div><span class="eyebrow">上线红线</span><h2>人工安全门与证据边界</h2></div></div><div id="governanceBoundaries" class="boundary-grid"></div></article>
+      </section>
+
+      <section class="page" id="page-audit">
+        <div class="page-intro"><div><span class="eyebrow">人机协同留痕</span><h2>处置闭环与审计日志</h2><p>任何复核结论和资源动作都应由值班人员确认、驳回或转交进一步复核。</p></div><button class="secondary-button" id="addAuditNote">新增备注</button></div>
+        <article class="panel table-panel"><div class="table-scroll"><table><thead><tr><th>时间</th><th>操作人</th><th>动作</th><th>对象</th><th>说明</th><th>来源</th></tr></thead><tbody id="auditTable"></tbody></table></div></article>
+      </section>
+    </main>
+  </div>
+
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="detail-drawer" id="detailDrawer" aria-hidden="true">
+    <div class="drawer-head"><div><span class="eyebrow">候选详情</span><h2 id="drawerTitle">路段详情</h2></div><button id="closeDrawer">×</button></div>
+    <div id="drawerContent"></div>
+  </aside>
+
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal"><div class="modal-head"><h2 id="modalTitle">人工处置记录</h2><button id="closeModal">×</button></div><form id="auditForm"><label>动作<select name="action"><option value="确认">确认</option><option value="驳回">驳回</option><option value="转人工复核">转人工复核</option><option value="备注">备注</option></select></label><label>对象<input name="target" required maxlength="100"></label><label>操作人<input name="operator" value="值班员" maxlength="30"></label><label>说明<textarea name="note" rows="4" maxlength="500" placeholder="填写判断依据或交接说明"></textarea></label><input type="hidden" name="source" value="平台操作"><button class="primary-button full" type="submit">写入审计日志</button></form></div>
+  </div>
+
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+  <script src="/app.js" defer></script>
+</body>
+</html>

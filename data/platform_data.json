@@ -1,0 +1,3606 @@
+{
+  "system": {
+    "name": "大模型道路路域风险监管平台",
+    "short_name": "路域智监",
+    "version": "V1.0.0",
+    "mode": "历史因果回放"
+  },
+  "snapshot": {
+    "time": "2025-11-05 14:40:00",
+    "label": "2025年11月5日 14:40 独立测试回放",
+    "future_outcome_hidden": true,
+    "update_minutes": 10,
+    "prediction_horizon_minutes": 30
+  },
+  "metrics": {
+    "roc_auc": 0.9124092041480949,
+    "pr_auc": 0.13963866337082512,
+    "precision": 0.13196339701396692,
+    "recall": 0.6523809523809524,
+    "f1": 0.21952196554947256,
+    "event_recall": 0.9130434782608695,
+    "false_positive_reduction": 0.8347190805159871,
+    "median_lead_time_min": 30.0,
+    "test_events": 23,
+    "detected_events": 21,
+    "raw_rows_full_year": 118926722,
+    "test_watchlist_sites": 5827,
+    "workload_reduction": 0.9997030677781557,
+    "student_model_mb": 0.06,
+    "type_accuracy": 0.6086956521739131,
+    "type_macro_f1": 0.42666666666666664
+  },
+  "pipeline": [
+    {
+      "scope": "full_year",
+      "stage": "raw_5min_100m_rows",
+      "records": 118926722,
+      "retained_fraction_vs_raw": 1.0,
+      "reduction_vs_raw": 0.0
+    },
+    {
+      "scope": "full_year",
+      "stage": "causal_distilled_candidates",
+      "records": 335010,
+      "retained_fraction_vs_raw": 0.0028169447065059102,
+      "reduction_vs_raw": 0.997183055293494
+    },
+    {
+      "scope": "independent_test",
+      "stage": "raw_5min_100m_rows",
+      "records": 19624007,
+      "retained_fraction_vs_raw": 1.0,
+      "reduction_vs_raw": 0.0
+    },
+    {
+      "scope": "independent_test",
+      "stage": "causal_distilled_candidates",
+      "records": 58374,
+      "retained_fraction_vs_raw": 0.002974621849655883,
+      "reduction_vs_raw": 0.9970253781503441
+    },
+    {
+      "scope": "independent_test",
+      "stage": "10min_100m_llm_watchlist_sites",
+      "records": 5827,
+      "retained_fraction_vs_raw": 0.00029693222184439704,
+      "reduction_vs_raw": 0.9997030677781557
+    }
+  ],
+  "route_series": [
+    {
+      "road_code": "G9411",
+      "direction_code": 0,
+      "points": [
+        {
+          "segment_id": "G9411_0_132900",
+          "stake_km": 132.795,
+          "score": 0.19195
+        },
+        {
+          "segment_id": "G9411_0_133000",
+          "stake_km": 132.9,
+          "score": 0.04822
+        },
+        {
+          "segment_id": "G9411_0_133100",
+          "stake_km": 133.0,
+          "score": 0.14035
+        },
+        {
+          "segment_id": "G9411_0_133200",
+          "stake_km": 133.1,
+          "score": 0.14931
+        },
+        {
+          "segment_id": "G9411_0_133300",
+          "stake_km": 133.2,
+          "score": 0.09886
+        },
+        {
+          "segment_id": "G9411_0_133400",
+          "stake_km": 133.3,
+          "score": 0.10328
+        },
+        {
+          "segment_id": "G9411_0_133500",
+          "stake_km": 133.4,
+          "score": 0.10561
+        },
+        {
+          "segment_id": "G9411_0_133600",
+          "stake_km": 133.5,
+          "score": 0.11284
+        },
+        {
+          "segment_id": "G9411_0_133700",
+          "stake_km": 133.6,
+          "score": 0.11794
+        },
+        {
+          "segment_id": "G9411_0_133800",
+          "stake_km": 133.7,
+          "score": 0.12234
+        },
+        {
+          "segment_id": "G9411_0_133900",
+          "stake_km": 133.8,
+          "score": 0.14003
+        },
+        {
+          "segment_id": "G9411_0_134000",
+          "stake_km": 133.9,
+          "score": 0.12129
+        },
+        {
+          "segment_id": "G9411_0_134100",
+          "stake_km": 134.0,
+          "score": 0.11423
+        },
+        {
+          "segment_id": "G9411_0_134200",
+          "stake_km": 134.1,
+          "score": 0.10109
+        },
+        {
+          "segment_id": "G9411_0_134300",
+          "stake_km": 134.2,
+          "score": 0.13149
+        },
+        {
+          "segment_id": "G9411_0_134400",
+          "stake_km": 134.3,
+          "score": 0.08146
+        },
+        {
+          "segment_id": "G9411_0_134500",
+          "stake_km": 134.4,
+          "score": 0.06877
+        },
+        {
+          "segment_id": "G9411_0_134600",
+          "stake_km": 134.5,
+          "score": 0.09658
+        },
+        {
+          "segment_id": "G9411_0_134700",
+          "stake_km": 134.6,
+          "score": 0.14152
+        },
+        {
+          "segment_id": "G9411_0_134800",
+          "stake_km": 134.7,
+          "score": 0.07114
+        },
+        {
+          "segment_id": "G9411_0_134900",
+          "stake_km": 134.8,
+          "score": 0.07116
+        },
+        {
+          "segment_id": "G9411_0_135000",
+          "stake_km": 134.9,
+          "score": 0.07607
+        },
+        {
+          "segment_id": "G9411_0_135100",
+          "stake_km": 135.0,
+          "score": 0.26858
+        },
+        {
+          "segment_id": "G9411_0_135200",
+          "stake_km": 135.1,
+          "score": 0.14295
+        },
+        {
+          "segment_id": "G9411_0_135300",
+          "stake_km": 135.2,
+          "score": 0.12105
+        },
+        {
+          "segment_id": "G9411_0_135400",
+          "stake_km": 135.3,
+          "score": 0.07295
+        },
+        {
+          "segment_id": "G9411_0_135500",
+          "stake_km": 135.4,
+          "score": 0.02945
+        },
+        {
+          "segment_id": "G9411_0_135600",
+          "stake_km": 135.5,
+          "score": 0.09852
+        },
+        {
+          "segment_id": "G9411_0_135700",
+          "stake_km": 135.6,
+          "score": 0.05313
+        },
+        {
+          "segment_id": "G9411_0_135800",
+          "stake_km": 135.7,
+          "score": 0.04289
+        },
+        {
+          "segment_id": "G9411_0_135900",
+          "stake_km": 135.8,
+          "score": 0.03326
+        },
+        {
+          "segment_id": "G9411_0_136000",
+          "stake_km": 135.9,
+          "score": 0.03188
+        },
+        {
+          "segment_id": "G9411_0_136100",
+          "stake_km": 136.0,
+          "score": 0.10405
+        },
+        {
+          "segment_id": "G9411_0_136200",
+          "stake_km": 136.1,
+          "score": 0.0532
+        },
+        {
+          "segment_id": "G9411_0_136300",
+          "stake_km": 136.2,
+          "score": 0.07131
+        },
+        {
+          "segment_id": "G9411_0_136400",
+          "stake_km": 136.3,
+          "score": 0.10115
+        },
+        {
+          "segment_id": "G9411_0_136500",
+          "stake_km": 136.4,
+          "score": 0.13572
+        },
+        {
+          "segment_id": "G9411_0_136600",
+          "stake_km": 136.5,
+          "score": 0.10069
+        },
+        {
+          "segment_id": "G9411_0_136700",
+          "stake_km": 136.6,
+          "score": 0.05318
+        },
+        {
+          "segment_id": "G9411_0_136800",
+          "stake_km": 136.7,
+          "score": 0.10063
+        },
+        {
+          "segment_id": "G9411_0_136900",
+          "stake_km": 136.8,
+          "score": 0.13768
+        },
+        {
+          "segment_id": "G9411_0_137000",
+          "stake_km": 136.9,
+          "score": 0.05348
+        },
+        {
+          "segment_id": "G9411_0_137100",
+          "stake_km": 137.0,
+          "score": 0.09457
+        },
+        {
+          "segment_id": "G9411_0_137200",
+          "stake_km": 137.1,
+          "score": 0.07762
+        },
+        {
+          "segment_id": "G9411_0_137300",
+          "stake_km": 137.2,
+          "score": 0.11249
+        },
+        {
+          "segment_id": "G9411_0_137340",
+          "stake_km": 137.257,
+          "score": 0.13202
+        },
+        {
+          "segment_id": "G9411_0_137440",
+          "stake_km": 137.34,
+          "score": 0.12035
+        },
+        {
+          "segment_id": "G9411_0_137540",
+          "stake_km": 137.44,
+          "score": 0.15035
+        },
+        {
+          "segment_id": "G9411_0_137640",
+          "stake_km": 137.54,
+          "score": 0.11533
+        },
+        {
+          "segment_id": "G9411_0_137740",
+          "stake_km": 137.64,
+          "score": 0.14727
+        },
+        {
+          "segment_id": "G9411_0_137840",
+          "stake_km": 137.74,
+          "score": 0.17472
+        },
+        {
+          "segment_id": "G9411_0_137940",
+          "stake_km": 137.84,
+          "score": 0.15881
+        },
+        {
+          "segment_id": "G9411_0_138040",
+          "stake_km": 137.94,
+          "score": 0.14987
+        },
+        {
+          "segment_id": "G9411_0_138140",
+          "stake_km": 138.04,
+          "score": 0.15203
+        },
+        {
+          "segment_id": "G9411_0_138240",
+          "stake_km": 138.14,
+          "score": 0.33738
+        },
+        {
+          "segment_id": "G9411_0_138340",
+          "stake_km": 138.24,
+          "score": 0.153
+        },
+        {
+          "segment_id": "G9411_0_138440",
+          "stake_km": 138.34,
+          "score": 0.16068
+        },
+        {
+          "segment_id": "G9411_0_138540",
+          "stake_km": 138.44,
+          "score": 0.17453
+        },
+        {
+          "segment_id": "G9411_0_138640",
+          "stake_km": 138.54,
+          "score": 0.15788
+        },
+        {
+          "segment_id": "G9411_0_138740",
+          "stake_km": 138.64,
+          "score": 0.15236
+        },
+        {
+          "segment_id": "G9411_0_138840",
+          "stake_km": 138.74,
+          "score": 0.16479
+        },
+        {
+          "segment_id": "G9411_0_138940",
+          "stake_km": 138.84,
+          "score": 0.15378
+        },
+        {
+          "segment_id": "G9411_0_139040",
+          "stake_km": 138.94,
+          "score": 0.15369
+        },
+        {
+          "segment_id": "G9411_0_139140",
+          "stake_km": 139.04,
+          "score": 0.10168
+        },
+        {
+          "segment_id": "G9411_0_139240",
+          "stake_km": 139.14,
+          "score": 0.15057
+        },
+        {
+          "segment_id": "G9411_0_139340",
+          "stake_km": 139.24,
+          "score": 0.15056
+        },
+        {
+          "segment_id": "G9411_0_139440",
+          "stake_km": 139.34,
+          "score": 0.15041
+        },
+        {
+          "segment_id": "G9411_0_139540",
+          "stake_km": 139.44,
+          "score": 0.17527
+        },
+        {
+          "segment_id": "G9411_0_139640",
+          "stake_km": 139.54,
+          "score": 0.10141
+        },
+        {
+          "segment_id": "G9411_0_139740",
+          "stake_km": 139.64,
+          "score": 0.16317
+        },
+        {
+          "segment_id": "G9411_0_139840",
+          "stake_km": 139.74,
+          "score": 0.15625
+        },
+        {
+          "segment_id": "G9411_0_139940",
+          "stake_km": 139.84,
+          "score": 0.15622
+        },
+        {
+          "segment_id": "G9411_0_140040",
+          "stake_km": 139.94,
+          "score": 0.13159
+        },
+        {
+          "segment_id": "G9411_0_140140",
+          "stake_km": 140.04,
+          "score": 0.14255
+        },
+        {
+          "segment_id": "G9411_0_140240",
+          "stake_km": 140.14,
+          "score": 0.13245
+        },
+        {
+          "segment_id": "G9411_0_140340",
+          "stake_km": 140.24,
+          "score": 0.14786
+        },
+        {
+          "segment_id": "G9411_0_140440",
+          "stake_km": 140.34,
+          "score": 0.13447
+        },
+        {
+          "segment_id": "G9411_0_140540",
+          "stake_km": 140.44,
+          "score": 0.12927
+        },
+        {
+          "segment_id": "G9411_0_140640",
+          "stake_km": 140.54,
+          "score": 0.08774
+        },
+        {
+          "segment_id": "G9411_0_140740",
+          "stake_km": 140.64,
+          "score": 0.14488
+        },
+        {
+          "segment_id": "G9411_0_140840",
+          "stake_km": 140.74,
+          "score": 0.14701
+        },
+        {
+          "segment_id": "G9411_0_140940",
+          "stake_km": 140.84,
+          "score": 0.14512
+        },
+        {
+          "segment_id": "G9411_0_141040",
+          "stake_km": 140.94,
+          "score": 0.12932
+        },
+        {
+          "segment_id": "G9411_0_141140",
+          "stake_km": 141.04,
+          "score": 0.06998
+        },
+        {
+          "segment_id": "G9411_0_141240",
+          "stake_km": 141.14,
+          "score": 0.07087
+        },
+        {
+          "segment_id": "G9411_0_141340",
+          "stake_km": 141.24,
+          "score": 0.14756
+        },
+        {
+          "segment_id": "G9411_0_141440",
+          "stake_km": 141.34,
+          "score": 0.10822
+        },
+        {
+          "segment_id": "G9411_0_141540",
+          "stake_km": 141.44,
+          "score": 0.18119
+        },
+        {
+          "segment_id": "G9411_0_141640",
+          "stake_km": 141.54,
+          "score": 0.0959
+        },
+        {
+          "segment_id": "G9411_0_141740",
+          "stake_km": 141.64,
+          "score": 0.13682
+        },
+        {
+          "segment_id": "G9411_0_141840",
+          "stake_km": 141.74,
+          "score": 0.09855
+        },
+        {
+          "segment_id": "G9411_0_141940",
+          "stake_km": 141.84,
+          "score": 0.09924
+        },
+        {
+          "segment_id": "G9411_0_142040",
+          "stake_km": 141.94,
+          "score": 0.07982
+        },
+        {
+          "segment_id": "G9411_0_142140",
+          "stake_km": 142.04,
+          "score": 0.09242
+        },
+        {
+          "segment_id": "G9411_0_142240",
+          "stake_km": 142.14,
+          "score": 0.09376
+        },
+        {
+          "segment_id": "G9411_0_142340",
+          "stake_km": 142.24,
+          "score": 0.07151
+        },
+        {
+          "segment_id": "G9411_0_142440",
+          "stake_km": 142.34,
+          "score": 0.08719
+        },
+        {
+          "segment_id": "G9411_0_142540",
+          "stake_km": 142.44,
+          "score": 0.10333
+        },
+        {
+          "segment_id": "G9411_0_142640",
+          "stake_km": 142.54,
+          "score": 0.08039
+        },
+        {
+          "segment_id": "G9411_0_142740",
+          "stake_km": 142.64,
+          "score": 0.09055
+        },
+        {
+          "segment_id": "G9411_0_142840",
+          "stake_km": 142.74,
+          "score": 0.05532
+        },
+        {
+          "segment_id": "G9411_0_142940",
+          "stake_km": 142.84,
+          "score": 0.107
+        },
+        {
+          "segment_id": "G9411_0_143040",
+          "stake_km": 142.94,
+          "score": 0.08482
+        },
+        {
+          "segment_id": "G9411_0_143140",
+          "stake_km": 143.04,
+          "score": 0.09769
+        },
+        {
+          "segment_id": "G9411_0_143240",
+          "stake_km": 143.14,
+          "score": 0.10602
+        },
+        {
+          "segment_id": "G9411_0_143340",
+          "stake_km": 143.24,
+          "score": 0.08675
+        },
+        {
+          "segment_id": "G9411_0_143440",
+          "stake_km": 143.34,
+          "score": 0.08719
+        },
+        {
+          "segment_id": "G9411_0_143540",
+          "stake_km": 143.44,
+          "score": 0.06177
+        },
+        {
+          "segment_id": "G9411_0_143640",
+          "stake_km": 143.54,
+          "score": 0.03232
+        },
+        {
+          "segment_id": "G9411_0_143740",
+          "stake_km": 143.64,
+          "score": 0.09948
+        },
+        {
+          "segment_id": "G9411_0_143840",
+          "stake_km": 143.74,
+          "score": 0.03255
+        },
+        {
+          "segment_id": "G9411_0_143940",
+          "stake_km": 143.84,
+          "score": 0.15196
+        },
+        {
+          "segment_id": "G9411_0_144040",
+          "stake_km": 143.94,
+          "score": 0.10182
+        },
+        {
+          "segment_id": "G9411_0_144140",
+          "stake_km": 144.04,
+          "score": 0.14929
+        },
+        {
+          "segment_id": "G9411_0_144240",
+          "stake_km": 144.14,
+          "score": 0.15196
+        },
+        {
+          "segment_id": "G9411_0_144340",
+          "stake_km": 144.24,
+          "score": 0.10772
+        },
+        {
+          "segment_id": "G9411_0_144440",
+          "stake_km": 144.34,
+          "score": 0.09744
+        },
+        {
+          "segment_id": "G9411_0_144540",
+          "stake_km": 144.44,
+          "score": 0.23858
+        },
+        {
+          "segment_id": "G9411_0_144640",
+          "stake_km": 144.54,
+          "score": 0.09572
+        },
+        {
+          "segment_id": "G9411_0_144740",
+          "stake_km": 144.64,
+          "score": 0.06633
+        },
+        {
+          "segment_id": "G9411_0_144840",
+          "stake_km": 144.74,
+          "score": 0.3358
+        },
+        {
+          "segment_id": "G9411_0_144940",
+          "stake_km": 144.84,
+          "score": 0.19583
+        },
+        {
+          "segment_id": "G9411_0_145040",
+          "stake_km": 144.94,
+          "score": 0.13997
+        },
+        {
+          "segment_id": "G9411_0_145140",
+          "stake_km": 145.04,
+          "score": 0.0633
+        },
+        {
+          "segment_id": "G9411_0_145240",
+          "stake_km": 145.14,
+          "score": 0.09979
+        },
+        {
+          "segment_id": "G9411_0_145340",
+          "stake_km": 145.24,
+          "score": 0.13613
+        },
+        {
+          "segment_id": "G9411_0_145440",
+          "stake_km": 145.34,
+          "score": 0.28437
+        },
+        {
+          "segment_id": "G9411_0_145540",
+          "stake_km": 145.44,
+          "score": 0.13443
+        },
+        {
+          "segment_id": "G9411_0_145640",
+          "stake_km": 145.54,
+          "score": 0.36623
+        },
+        {
+          "segment_id": "G9411_0_145800",
+          "stake_km": 145.657,
+          "score": 0.15122
+        },
+        {
+          "segment_id": "G9411_0_145900",
+          "stake_km": 145.8,
+          "score": 0.24917
+        },
+        {
+          "segment_id": "G9411_0_146000",
+          "stake_km": 145.9,
+          "score": 0.21802
+        },
+        {
+          "segment_id": "G9411_0_146100",
+          "stake_km": 146.0,
+          "score": 0.12143
+        },
+        {
+          "segment_id": "G9411_0_146200",
+          "stake_km": 146.1,
+          "score": 0.19928
+        },
+        {
+          "segment_id": "G9411_0_146300",
+          "stake_km": 146.2,
+          "score": 0.19473
+        },
+        {
+          "segment_id": "G9411_0_146400",
+          "stake_km": 146.3,
+          "score": 0.08569
+        },
+        {
+          "segment_id": "G9411_0_146500",
+          "stake_km": 146.4,
+          "score": 0.18828
+        },
+        {
+          "segment_id": "G9411_0_146600",
+          "stake_km": 146.5,
+          "score": 0.08568
+        },
+        {
+          "segment_id": "G9411_0_146700",
+          "stake_km": 146.6,
+          "score": 0.28246
+        },
+        {
+          "segment_id": "G9411_0_146800",
+          "stake_km": 146.7,
+          "score": 0.08556
+        },
+        {
+          "segment_id": "G9411_0_146900",
+          "stake_km": 146.8,
+          "score": 0.18853
+        },
+        {
+          "segment_id": "G9411_0_147000",
+          "stake_km": 146.9,
+          "score": 0.26756
+        },
+        {
+          "segment_id": "G9411_0_147100",
+          "stake_km": 147.0,
+          "score": 0.22507
+        },
+        {
+          "segment_id": "G9411_0_147200",
+          "stake_km": 147.1,
+          "score": 0.19381
+        },
+        {
+          "segment_id": "G9411_0_147300",
+          "stake_km": 147.2,
+          "score": 0.21496
+        },
+        {
+          "segment_id": "G9411_0_147400",
+          "stake_km": 147.3,
+          "score": 0.1896
+        },
+        {
+          "segment_id": "G9411_0_147500",
+          "stake_km": 147.4,
+          "score": 0.18845
+        },
+        {
+          "segment_id": "G9411_0_147600",
+          "stake_km": 147.5,
+          "score": 0.12086
+        },
+        {
+          "segment_id": "G9411_0_147700",
+          "stake_km": 147.6,
+          "score": 0.20725
+        },
+        {
+          "segment_id": "G9411_0_147800",
+          "stake_km": 147.7,
+          "score": 0.12027
+        },
+        {
+          "segment_id": "G9411_0_147900",
+          "stake_km": 147.8,
+          "score": 0.15608
+        },
+        {
+          "segment_id": "G9411_0_148000",
+          "stake_km": 147.9,
+          "score": 0.11909
+        },
+        {
+          "segment_id": "G9411_0_148100",
+          "stake_km": 148.0,
+          "score": 0.15605
+        }
+      ]
+    },
+    {
+      "road_code": "G9411",
+      "direction_code": 1,
+      "points": [
+        {
+          "segment_id": "G9411_1_132685",
+          "stake_km": 132.685,
+          "score": 0.31136
+        },
+        {
+          "segment_id": "G9411_1_132885",
+          "stake_km": 132.885,
+          "score": 0.31074
+        },
+        {
+          "segment_id": "G9411_1_133085",
+          "stake_km": 133.085,
+          "score": 0.27161
+        },
+        {
+          "segment_id": "G9411_1_133285",
+          "stake_km": 133.285,
+          "score": 0.27476
+        },
+        {
+          "segment_id": "G9411_1_133485",
+          "stake_km": 133.485,
+          "score": 0.2677
+        },
+        {
+          "segment_id": "G9411_1_133685",
+          "stake_km": 133.685,
+          "score": 0.30835
+        },
+        {
+          "segment_id": "G9411_1_133885",
+          "stake_km": 133.885,
+          "score": 0.25069
+        },
+        {
+          "segment_id": "G9411_1_134085",
+          "stake_km": 134.085,
+          "score": 0.27497
+        },
+        {
+          "segment_id": "G9411_1_134285",
+          "stake_km": 134.285,
+          "score": 0.26327
+        },
+        {
+          "segment_id": "G9411_1_134485",
+          "stake_km": 134.485,
+          "score": 0.26214
+        },
+        {
+          "segment_id": "G9411_1_134685",
+          "stake_km": 134.685,
+          "score": 0.28007
+        },
+        {
+          "segment_id": "G9411_1_134885",
+          "stake_km": 134.885,
+          "score": 0.23467
+        },
+        {
+          "segment_id": "G9411_1_135085",
+          "stake_km": 135.085,
+          "score": 0.22198
+        },
+        {
+          "segment_id": "G9411_1_135285",
+          "stake_km": 135.285,
+          "score": 0.16875
+        },
+        {
+          "segment_id": "G9411_1_135485",
+          "stake_km": 135.485,
+          "score": 0.2807
+        },
+        {
+          "segment_id": "G9411_1_135685",
+          "stake_km": 135.685,
+          "score": 0.26243
+        },
+        {
+          "segment_id": "G9411_1_135885",
+          "stake_km": 135.885,
+          "score": 0.24452
+        },
+        {
+          "segment_id": "G9411_1_136085",
+          "stake_km": 136.085,
+          "score": 0.24749
+        },
+        {
+          "segment_id": "G9411_1_136285",
+          "stake_km": 136.285,
+          "score": 0.24982
+        },
+        {
+          "segment_id": "G9411_1_136485",
+          "stake_km": 136.485,
+          "score": 0.27703
+        },
+        {
+          "segment_id": "G9411_1_136685",
+          "stake_km": 136.685,
+          "score": 0.21339
+        },
+        {
+          "segment_id": "G9411_1_136885",
+          "stake_km": 136.885,
+          "score": 0.19938
+        },
+        {
+          "segment_id": "G9411_1_136985",
+          "stake_km": 136.985,
+          "score": 0.12633
+        },
+        {
+          "segment_id": "G9411_1_137250",
+          "stake_km": 137.15,
+          "score": 0.19067
+        },
+        {
+          "segment_id": "G9411_1_137270",
+          "stake_km": 137.27,
+          "score": 0.01023
+        },
+        {
+          "segment_id": "G9411_1_137450",
+          "stake_km": 137.35,
+          "score": 0.10804
+        },
+        {
+          "segment_id": "G9411_1_145500",
+          "stake_km": 137.37,
+          "score": 0.27846
+        },
+        {
+          "segment_id": "G9411_1_137470",
+          "stake_km": 137.47,
+          "score": 0.05346
+        },
+        {
+          "segment_id": "G9411_1_137650",
+          "stake_km": 137.55,
+          "score": 0.23381
+        },
+        {
+          "segment_id": "G9411_1_145300",
+          "stake_km": 137.57,
+          "score": 0.27863
+        },
+        {
+          "segment_id": "G9411_1_137670",
+          "stake_km": 137.67,
+          "score": 0.01019
+        },
+        {
+          "segment_id": "G9411_1_137850",
+          "stake_km": 137.75,
+          "score": 0.19423
+        },
+        {
+          "segment_id": "G9411_1_145100",
+          "stake_km": 137.77,
+          "score": 0.26661
+        },
+        {
+          "segment_id": "G9411_1_137870",
+          "stake_km": 137.87,
+          "score": 0.01015
+        },
+        {
+          "segment_id": "G9411_1_138050",
+          "stake_km": 137.95,
+          "score": 0.19514
+        },
+        {
+          "segment_id": "G9411_1_144900",
+          "stake_km": 137.97,
+          "score": 0.27891
+        },
+        {
+          "segment_id": "G9411_1_138070",
+          "stake_km": 138.07,
+          "score": 0.17646
+        },
+        {
+          "segment_id": "G9411_1_138250",
+          "stake_km": 138.15,
+          "score": 0.1971
+        },
+        {
+          "segment_id": "G9411_1_144700",
+          "stake_km": 138.17,
+          "score": 0.40357
+        },
+        {
+          "segment_id": "G9411_1_138270",
+          "stake_km": 138.27,
+          "score": 0.05167
+        },
+        {
+          "segment_id": "G9411_1_138450",
+          "stake_km": 138.35,
+          "score": 0.30016
+        },
+        {
+          "segment_id": "G9411_1_144500",
+          "stake_km": 138.37,
+          "score": 0.37673
+        },
+        {
+          "segment_id": "G9411_1_138470",
+          "stake_km": 138.47,
+          "score": 0.14278
+        },
+        {
+          "segment_id": "G9411_1_138650",
+          "stake_km": 138.55,
+          "score": 0.28424
+        },
+        {
+          "segment_id": "G9411_1_144300",
+          "stake_km": 138.57,
+          "score": 0.32717
+        },
+        {
+          "segment_id": "G9411_1_138670",
+          "stake_km": 138.67,
+          "score": 0.08501
+        },
+        {
+          "segment_id": "G9411_1_138850",
+          "stake_km": 138.75,
+          "score": 0.22526
+        },
+        {
+          "segment_id": "G9411_1_144100",
+          "stake_km": 138.77,
+          "score": 0.33449
+        },
+        {
+          "segment_id": "G9411_1_138870",
+          "stake_km": 138.87,
+          "score": 0.14699
+        },
+        {
+          "segment_id": "G9411_1_139050",
+          "stake_km": 138.95,
+          "score": 0.23163
+        },
+        {
+          "segment_id": "G9411_1_143900",
+          "stake_km": 138.97,
+          "score": 0.3088
+        },
+        {
+          "segment_id": "G9411_1_139070",
+          "stake_km": 139.07,
+          "score": 0.05547
+        },
+        {
+          "segment_id": "G9411_1_139250",
+          "stake_km": 139.15,
+          "score": 0.20683
+        },
+        {
+          "segment_id": "G9411_1_143700",
+          "stake_km": 139.17,
+          "score": 0.43989
+        },
+        {
+          "segment_id": "G9411_1_139270",
+          "stake_km": 139.27,
+          "score": 0.00987
+        },
+        {
+          "segment_id": "G9411_1_139450",
+          "stake_km": 139.35,
+          "score": 0.28756
+        },
+        {
+          "segment_id": "G9411_1_143500",
+          "stake_km": 139.37,
+          "score": 0.3038
+        },
+        {
+          "segment_id": "G9411_1_139470",
+          "stake_km": 139.47,
+          "score": 0.00969
+        },
+        {
+          "segment_id": "G9411_1_139650",
+          "stake_km": 139.55,
+          "score": 0.20293
+        },
+        {
+          "segment_id": "G9411_1_143300",
+          "stake_km": 139.57,
+          "score": 0.32623
+        },
+        {
+          "segment_id": "G9411_1_139670",
+          "stake_km": 139.67,
+          "score": 0.00972
+        },
+        {
+          "segment_id": "G9411_1_139850",
+          "stake_km": 139.75,
+          "score": 0.30574
+        },
+        {
+          "segment_id": "G9411_1_139950",
+          "stake_km": 139.85,
+          "score": 0.17238
+        },
+        {
+          "segment_id": "G9411_1_140050",
+          "stake_km": 139.95,
+          "score": 0.33504
+        },
+        {
+          "segment_id": "G9411_1_140150",
+          "stake_km": 140.05,
+          "score": 0.18699
+        },
+        {
+          "segment_id": "G9411_1_140250",
+          "stake_km": 140.15,
+          "score": 0.28502
+        },
+        {
+          "segment_id": "G9411_1_140350",
+          "stake_km": 140.25,
+          "score": 0.34623
+        },
+        {
+          "segment_id": "G9411_1_140450",
+          "stake_km": 140.35,
+          "score": 0.17433
+        },
+        {
+          "segment_id": "G9411_1_140550",
+          "stake_km": 140.45,
+          "score": 0.26185
+        },
+        {
+          "segment_id": "G9411_1_140650",
+          "stake_km": 140.55,
+          "score": 0.15896
+        },
+        {
+          "segment_id": "G9411_1_140750",
+          "stake_km": 140.65,
+          "score": 0.31474
+        },
+        {
+          "segment_id": "G9411_1_140850",
+          "stake_km": 140.75,
+          "score": 0.22802
+        },
+        {
+          "segment_id": "G9411_1_140950",
+          "stake_km": 140.85,
+          "score": 0.39355
+        },
+        {
+          "segment_id": "G9411_1_141050",
+          "stake_km": 140.95,
+          "score": 0.27575
+        },
+        {
+          "segment_id": "G9411_1_141150",
+          "stake_km": 141.05,
+          "score": 0.18137
+        },
+        {
+          "segment_id": "G9411_1_141250",
+          "stake_km": 141.15,
+          "score": 0.32271
+        },
+        {
+          "segment_id": "G9411_1_141350",
+          "stake_km": 141.25,
+          "score": 0.36182
+        },
+        {
+          "segment_id": "G9411_1_141450",
+          "stake_km": 141.35,
+          "score": 0.2592
+        },
+        {
+          "segment_id": "G9411_1_141550",
+          "stake_km": 141.45,
+          "score": 0.25685
+        },
+        {
+          "segment_id": "G9411_1_141650",
+          "stake_km": 141.55,
+          "score": 0.26196
+        },
+        {
+          "segment_id": "G9411_1_141750",
+          "stake_km": 141.65,
+          "score": 0.32535
+        },
+        {
+          "segment_id": "G9411_1_141850",
+          "stake_km": 141.75,
+          "score": 0.22891
+        },
+        {
+          "segment_id": "G9411_1_141950",
+          "stake_km": 141.85,
+          "score": 0.24767
+        },
+        {
+          "segment_id": "G9411_1_142050",
+          "stake_km": 141.95,
+          "score": 0.19311
+        },
+        {
+          "segment_id": "G9411_1_142150",
+          "stake_km": 142.05,
+          "score": 0.18422
+        },
+        {
+          "segment_id": "G9411_1_142250",
+          "stake_km": 142.15,
+          "score": 0.32651
+        },
+        {
+          "segment_id": "G9411_1_142350",
+          "stake_km": 142.25,
+          "score": 0.16847
+        },
+        {
+          "segment_id": "G9411_1_142450",
+          "stake_km": 142.35,
+          "score": 0.13628
+        },
+        {
+          "segment_id": "G9411_1_142550",
+          "stake_km": 142.45,
+          "score": 0.22482
+        },
+        {
+          "segment_id": "G9411_1_142650",
+          "stake_km": 142.55,
+          "score": 0.22594
+        },
+        {
+          "segment_id": "G9411_1_142750",
+          "stake_km": 142.65,
+          "score": 0.17044
+        },
+        {
+          "segment_id": "G9411_1_142850",
+          "stake_km": 142.75,
+          "score": 0.1794
+        },
+        {
+          "segment_id": "G9411_1_142950",
+          "stake_km": 142.85,
+          "score": 0.18625
+        },
+        {
+          "segment_id": "G9411_1_143050",
+          "stake_km": 142.95,
+          "score": 0.25207
+        },
+        {
+          "segment_id": "G9411_1_143150",
+          "stake_km": 143.05,
+          "score": 0.35526
+        },
+        {
+          "segment_id": "G9411_1_143250",
+          "stake_km": 143.15,
+          "score": 0.27487
+        },
+        {
+          "segment_id": "G9411_1_143350",
+          "stake_km": 143.25,
+          "score": 0.31566
+        },
+        {
+          "segment_id": "G9411_1_143450",
+          "stake_km": 143.35,
+          "score": 0.35196
+        },
+        {
+          "segment_id": "G9411_1_143550",
+          "stake_km": 143.45,
+          "score": 0.35822
+        },
+        {
+          "segment_id": "G9411_1_143650",
+          "stake_km": 143.55,
+          "score": 0.31326
+        },
+        {
+          "segment_id": "G9411_1_143750",
+          "stake_km": 143.65,
+          "score": 0.26934
+        },
+        {
+          "segment_id": "G9411_1_143850",
+          "stake_km": 143.75,
+          "score": 0.22839
+        },
+        {
+          "segment_id": "G9411_1_143950",
+          "stake_km": 143.85,
+          "score": 0.44059
+        },
+        {
+          "segment_id": "G9411_1_144050",
+          "stake_km": 143.95,
+          "score": 0.22707
+        },
+        {
+          "segment_id": "G9411_1_144150",
+          "stake_km": 144.05,
+          "score": 0.22981
+        },
+        {
+          "segment_id": "G9411_1_144250",
+          "stake_km": 144.15,
+          "score": 0.23025
+        },
+        {
+          "segment_id": "G9411_1_144350",
+          "stake_km": 144.25,
+          "score": 0.35144
+        },
+        {
+          "segment_id": "G9411_1_144450",
+          "stake_km": 144.35,
+          "score": 0.24688
+        },
+        {
+          "segment_id": "G9411_1_144550",
+          "stake_km": 144.45,
+          "score": 0.25731
+        },
+        {
+          "segment_id": "G9411_1_144650",
+          "stake_km": 144.55,
+          "score": 0.22787
+        },
+        {
+          "segment_id": "G9411_1_144750",
+          "stake_km": 144.65,
+          "score": 0.35615
+        },
+        {
+          "segment_id": "G9411_1_144850",
+          "stake_km": 144.75,
+          "score": 0.27671
+        },
+        {
+          "segment_id": "G9411_1_144950",
+          "stake_km": 144.85,
+          "score": 0.32428
+        },
+        {
+          "segment_id": "G9411_1_145050",
+          "stake_km": 144.95,
+          "score": 0.35634
+        },
+        {
+          "segment_id": "G9411_1_145150",
+          "stake_km": 145.05,
+          "score": 0.24932
+        },
+        {
+          "segment_id": "G9411_1_145250",
+          "stake_km": 145.15,
+          "score": 0.24868
+        },
+        {
+          "segment_id": "G9411_1_145350",
+          "stake_km": 145.25,
+          "score": 0.1943
+        },
+        {
+          "segment_id": "G9411_1_145450",
+          "stake_km": 145.35,
+          "score": 0.206
+        },
+        {
+          "segment_id": "G9411_1_145550",
+          "stake_km": 145.45,
+          "score": 0.20025
+        },
+        {
+          "segment_id": "G9411_1_145650",
+          "stake_km": 145.55,
+          "score": 0.24753
+        },
+        {
+          "segment_id": "G9411_1_145750",
+          "stake_km": 145.65,
+          "score": 0.2396
+        },
+        {
+          "segment_id": "G9411_1_145850",
+          "stake_km": 145.75,
+          "score": 0.24923
+        },
+        {
+          "segment_id": "G9411_1_146050",
+          "stake_km": 145.95,
+          "score": 0.33766
+        },
+        {
+          "segment_id": "G9411_1_146250",
+          "stake_km": 146.15,
+          "score": 0.42872
+        },
+        {
+          "segment_id": "G9411_1_146450",
+          "stake_km": 146.35,
+          "score": 0.35922
+        },
+        {
+          "segment_id": "G9411_1_146650",
+          "stake_km": 146.55,
+          "score": 0.30425
+        },
+        {
+          "segment_id": "G9411_1_146850",
+          "stake_km": 146.75,
+          "score": 0.18956
+        },
+        {
+          "segment_id": "G9411_1_147050",
+          "stake_km": 146.95,
+          "score": 0.2217
+        },
+        {
+          "segment_id": "G9411_1_147250",
+          "stake_km": 147.15,
+          "score": 0.22253
+        },
+        {
+          "segment_id": "G9411_1_147450",
+          "stake_km": 147.35,
+          "score": 0.37736
+        },
+        {
+          "segment_id": "G9411_1_147650",
+          "stake_km": 147.55,
+          "score": 0.42682
+        },
+        {
+          "segment_id": "G9411_1_147850",
+          "stake_km": 147.75,
+          "score": 0.36252
+        },
+        {
+          "segment_id": "G9411_1_148050",
+          "stake_km": 147.95,
+          "score": 0.39323
+        }
+      ]
+    },
+    {
+      "road_code": "S5",
+      "direction_code": 0,
+      "points": [
+        {
+          "segment_id": "S5_0_105870",
+          "stake_km": 105.744,
+          "score": 0.22575
+        },
+        {
+          "segment_id": "S5_0_106070",
+          "stake_km": 105.97,
+          "score": 0.04308
+        },
+        {
+          "segment_id": "S5_0_106270",
+          "stake_km": 106.17,
+          "score": 0.10612
+        },
+        {
+          "segment_id": "S5_0_106470",
+          "stake_km": 106.37,
+          "score": 0.10669
+        },
+        {
+          "segment_id": "S5_0_106670",
+          "stake_km": 106.57,
+          "score": 0.10901
+        },
+        {
+          "segment_id": "S5_0_106870",
+          "stake_km": 106.77,
+          "score": 0.10519
+        },
+        {
+          "segment_id": "S5_0_107070",
+          "stake_km": 106.97,
+          "score": 0.10666
+        },
+        {
+          "segment_id": "S5_0_107270",
+          "stake_km": 107.17,
+          "score": 0.14516
+        },
+        {
+          "segment_id": "S5_0_107470",
+          "stake_km": 107.37,
+          "score": 0.14455
+        },
+        {
+          "segment_id": "S5_0_107670",
+          "stake_km": 107.57,
+          "score": 0.11301
+        },
+        {
+          "segment_id": "S5_0_107870",
+          "stake_km": 107.77,
+          "score": 0.20971
+        },
+        {
+          "segment_id": "S5_0_108000",
+          "stake_km": 108.0,
+          "score": 0.11164
+        },
+        {
+          "segment_id": "S5_0_108280",
+          "stake_km": 108.18,
+          "score": 0.20909
+        },
+        {
+          "segment_id": "S5_0_108480",
+          "stake_km": 108.38,
+          "score": 0.16695
+        },
+        {
+          "segment_id": "S5_0_108680",
+          "stake_km": 108.58,
+          "score": 0.10079
+        },
+        {
+          "segment_id": "S5_0_108880",
+          "stake_km": 108.78,
+          "score": 0.27574
+        },
+        {
+          "segment_id": "S5_0_109080",
+          "stake_km": 108.98,
+          "score": 0.22006
+        },
+        {
+          "segment_id": "S5_0_109280",
+          "stake_km": 109.18,
+          "score": 0.23153
+        },
+        {
+          "segment_id": "S5_0_109480",
+          "stake_km": 109.38,
+          "score": 0.24931
+        },
+        {
+          "segment_id": "S5_0_109680",
+          "stake_km": 109.58,
+          "score": 0.24521
+        },
+        {
+          "segment_id": "S5_0_109880",
+          "stake_km": 109.78,
+          "score": 0.27758
+        },
+        {
+          "segment_id": "S5_0_110080",
+          "stake_km": 109.98,
+          "score": 0.30847
+        },
+        {
+          "segment_id": "S5_0_110280",
+          "stake_km": 110.18,
+          "score": 0.31065
+        },
+        {
+          "segment_id": "S5_0_110480",
+          "stake_km": 110.38,
+          "score": 0.10041
+        },
+        {
+          "segment_id": "S5_0_110680",
+          "stake_km": 110.58,
+          "score": 0.1755
+        },
+        {
+          "segment_id": "S5_0_110880",
+          "stake_km": 110.78,
+          "score": 0.34028
+        },
+        {
+          "segment_id": "S5_0_111080",
+          "stake_km": 110.98,
+          "score": 0.36765
+        },
+        {
+          "segment_id": "S5_0_111280",
+          "stake_km": 111.18,
+          "score": 0.15498
+        },
+        {
+          "segment_id": "S5_0_111480",
+          "stake_km": 111.38,
+          "score": 0.28093
+        },
+        {
+          "segment_id": "S5_0_111680",
+          "stake_km": 111.58,
+          "score": 0.19437
+        },
+        {
+          "segment_id": "S5_0_111880",
+          "stake_km": 111.78,
+          "score": 0.09658
+        },
+        {
+          "segment_id": "S5_0_112080",
+          "stake_km": 111.98,
+          "score": 0.28193
+        },
+        {
+          "segment_id": "S5_0_112280",
+          "stake_km": 112.18,
+          "score": 0.25096
+        },
+        {
+          "segment_id": "S5_0_112480",
+          "stake_km": 112.38,
+          "score": 0.25111
+        },
+        {
+          "segment_id": "S5_0_112680",
+          "stake_km": 112.58,
+          "score": 0.251
+        },
+        {
+          "segment_id": "S5_0_112880",
+          "stake_km": 112.78,
+          "score": 0.14457
+        },
+        {
+          "segment_id": "S5_0_113080",
+          "stake_km": 112.98,
+          "score": 0.24744
+        },
+        {
+          "segment_id": "S5_0_113280",
+          "stake_km": 113.18,
+          "score": 0.24709
+        },
+        {
+          "segment_id": "S5_0_113480",
+          "stake_km": 113.38,
+          "score": 0.24348
+        },
+        {
+          "segment_id": "S5_0_113680",
+          "stake_km": 113.58,
+          "score": 0.26896
+        },
+        {
+          "segment_id": "S5_0_113880",
+          "stake_km": 113.78,
+          "score": 0.1018
+        },
+        {
+          "segment_id": "S5_0_114080",
+          "stake_km": 113.98,
+          "score": 0.2818
+        },
+        {
+          "segment_id": "S5_0_114280",
+          "stake_km": 114.18,
+          "score": 0.00951
+        },
+        {
+          "segment_id": "S5_0_114480",
+          "stake_km": 114.38,
+          "score": 0.0095
+        },
+        {
+          "segment_id": "S5_0_114680",
+          "stake_km": 114.58,
+          "score": 0.25759
+        },
+        {
+          "segment_id": "S5_0_114880",
+          "stake_km": 114.78,
+          "score": 0.06591
+        },
+        {
+          "segment_id": "S5_0_115080",
+          "stake_km": 114.98,
+          "score": 0.04374
+        },
+        {
+          "segment_id": "S5_0_115280",
+          "stake_km": 115.18,
+          "score": 0.23319
+        },
+        {
+          "segment_id": "S5_0_115480",
+          "stake_km": 115.38,
+          "score": 0.05327
+        },
+        {
+          "segment_id": "S5_0_115680",
+          "stake_km": 115.58,
+          "score": 0.2239
+        },
+        {
+          "segment_id": "S5_0_115880",
+          "stake_km": 115.78,
+          "score": 0.14223
+        },
+        {
+          "segment_id": "S5_0_116080",
+          "stake_km": 115.98,
+          "score": 0.22488
+        },
+        {
+          "segment_id": "S5_0_116280",
+          "stake_km": 116.18,
+          "score": 0.24902
+        },
+        {
+          "segment_id": "S5_0_116480",
+          "stake_km": 116.38,
+          "score": 0.09402
+        },
+        {
+          "segment_id": "S5_0_116680",
+          "stake_km": 116.58,
+          "score": 0.09759
+        },
+        {
+          "segment_id": "S5_0_116880",
+          "stake_km": 116.78,
+          "score": 0.09569
+        },
+        {
+          "segment_id": "S5_0_117080",
+          "stake_km": 116.98,
+          "score": 0.09641
+        },
+        {
+          "segment_id": "S5_0_117480",
+          "stake_km": 117.38,
+          "score": 0.27863
+        },
+        {
+          "segment_id": "S5_0_117880",
+          "stake_km": 117.78,
+          "score": 0.23125
+        },
+        {
+          "segment_id": "S5_0_118280",
+          "stake_km": 118.18,
+          "score": 0.14913
+        },
+        {
+          "segment_id": "S5_0_118680",
+          "stake_km": 118.58,
+          "score": 0.15677
+        },
+        {
+          "segment_id": "S5_0_119080",
+          "stake_km": 118.98,
+          "score": 0.11028
+        },
+        {
+          "segment_id": "S5_0_119480",
+          "stake_km": 119.38,
+          "score": 0.27982
+        },
+        {
+          "segment_id": "S5_0_119880",
+          "stake_km": 119.78,
+          "score": 0.27768
+        },
+        {
+          "segment_id": "S5_0_120280",
+          "stake_km": 120.18,
+          "score": 0.2477
+        },
+        {
+          "segment_id": "S5_0_120680",
+          "stake_km": 120.58,
+          "score": 0.15104
+        },
+        {
+          "segment_id": "S5_0_121080",
+          "stake_km": 120.98,
+          "score": 0.14459
+        },
+        {
+          "segment_id": "S5_0_121480",
+          "stake_km": 121.38,
+          "score": 0.13591
+        },
+        {
+          "segment_id": "S5_0_121880",
+          "stake_km": 121.78,
+          "score": 0.10014
+        },
+        {
+          "segment_id": "S5_0_122280",
+          "stake_km": 122.18,
+          "score": 0.21633
+        },
+        {
+          "segment_id": "S5_0_122680",
+          "stake_km": 122.58,
+          "score": 0.10757
+        },
+        {
+          "segment_id": "S5_0_123080",
+          "stake_km": 122.98,
+          "score": 0.15188
+        },
+        {
+          "segment_id": "S5_0_123480",
+          "stake_km": 123.38,
+          "score": 0.15586
+        },
+        {
+          "segment_id": "S5_0_123880",
+          "stake_km": 123.78,
+          "score": 0.09827
+        },
+        {
+          "segment_id": "S5_0_124290",
+          "stake_km": 124.19,
+          "score": 0.21907
+        },
+        {
+          "segment_id": "S5_0_124690",
+          "stake_km": 124.59,
+          "score": 0.07306
+        },
+        {
+          "segment_id": "S5_0_125090",
+          "stake_km": 124.99,
+          "score": 0.24839
+        },
+        {
+          "segment_id": "S5_0_125490",
+          "stake_km": 125.39,
+          "score": 0.21758
+        },
+        {
+          "segment_id": "S5_0_125890",
+          "stake_km": 125.79,
+          "score": 0.23602
+        },
+        {
+          "segment_id": "S5_0_126290",
+          "stake_km": 126.19,
+          "score": 0.24776
+        },
+        {
+          "segment_id": "S5_0_126690",
+          "stake_km": 126.59,
+          "score": 0.21474
+        },
+        {
+          "segment_id": "S5_0_127090",
+          "stake_km": 126.99,
+          "score": 0.1646
+        },
+        {
+          "segment_id": "S5_0_127490",
+          "stake_km": 127.39,
+          "score": 0.13008
+        },
+        {
+          "segment_id": "S5_0_127890",
+          "stake_km": 127.79,
+          "score": 0.1786
+        },
+        {
+          "segment_id": "S5_0_128290",
+          "stake_km": 128.19,
+          "score": 0.18536
+        },
+        {
+          "segment_id": "S5_0_128690",
+          "stake_km": 128.59,
+          "score": 0.05222
+        },
+        {
+          "segment_id": "S5_0_129090",
+          "stake_km": 128.99,
+          "score": 0.05315
+        },
+        {
+          "segment_id": "S5_0_129490",
+          "stake_km": 129.39,
+          "score": 0.09023
+        },
+        {
+          "segment_id": "S5_0_129890",
+          "stake_km": 129.79,
+          "score": 0.09714
+        },
+        {
+          "segment_id": "S5_0_130290",
+          "stake_km": 130.19,
+          "score": 0.09856
+        },
+        {
+          "segment_id": "S5_0_130690",
+          "stake_km": 130.59,
+          "score": 0.13668
+        },
+        {
+          "segment_id": "S5_0_131090",
+          "stake_km": 130.99,
+          "score": 0.05391
+        },
+        {
+          "segment_id": "S5_0_131490",
+          "stake_km": 131.39,
+          "score": 0.2291
+        },
+        {
+          "segment_id": "S5_0_131890",
+          "stake_km": 131.79,
+          "score": 0.10186
+        },
+        {
+          "segment_id": "S5_0_132290",
+          "stake_km": 132.19,
+          "score": 0.09932
+        },
+        {
+          "segment_id": "S5_0_132690",
+          "stake_km": 132.59,
+          "score": 0.19355
+        },
+        {
+          "segment_id": "S5_0_133090",
+          "stake_km": 132.99,
+          "score": 0.14779
+        },
+        {
+          "segment_id": "S5_0_133490",
+          "stake_km": 133.39,
+          "score": 0.05331
+        },
+        {
+          "segment_id": "S5_0_133890",
+          "stake_km": 133.79,
+          "score": 0.10114
+        },
+        {
+          "segment_id": "S5_0_134290",
+          "stake_km": 134.19,
+          "score": 0.05276
+        },
+        {
+          "segment_id": "S5_0_134690",
+          "stake_km": 134.59,
+          "score": 0.08498
+        },
+        {
+          "segment_id": "S5_0_135090",
+          "stake_km": 134.99,
+          "score": 0.1014
+        },
+        {
+          "segment_id": "S5_0_135490",
+          "stake_km": 135.39,
+          "score": 0.32771
+        },
+        {
+          "segment_id": "S5_0_135890",
+          "stake_km": 135.79,
+          "score": 0.10184
+        }
+      ]
+    },
+    {
+      "road_code": "S5",
+      "direction_code": 1,
+      "points": [
+        {
+          "segment_id": "S5_1_105760",
+          "stake_km": 105.76,
+          "score": 0.19621
+        },
+        {
+          "segment_id": "S5_1_106060",
+          "stake_km": 106.06,
+          "score": 0.09656
+        },
+        {
+          "segment_id": "S5_1_106360",
+          "stake_km": 106.36,
+          "score": 0.05276
+        },
+        {
+          "segment_id": "S5_1_106660",
+          "stake_km": 106.66,
+          "score": 0.12878
+        },
+        {
+          "segment_id": "S5_1_106960",
+          "stake_km": 106.96,
+          "score": 0.14907
+        },
+        {
+          "segment_id": "S5_1_107260",
+          "stake_km": 107.26,
+          "score": 0.10818
+        },
+        {
+          "segment_id": "S5_1_107560",
+          "stake_km": 107.56,
+          "score": 0.09708
+        },
+        {
+          "segment_id": "S5_1_107860",
+          "stake_km": 107.86,
+          "score": 0.09722
+        },
+        {
+          "segment_id": "S5_1_108140",
+          "stake_km": 108.14,
+          "score": 0.22832
+        },
+        {
+          "segment_id": "S5_1_108440",
+          "stake_km": 108.44,
+          "score": 0.18844
+        },
+        {
+          "segment_id": "S5_1_108740",
+          "stake_km": 108.74,
+          "score": 0.13779
+        },
+        {
+          "segment_id": "S5_1_109040",
+          "stake_km": 109.04,
+          "score": 0.04599
+        },
+        {
+          "segment_id": "S5_1_109340",
+          "stake_km": 109.34,
+          "score": 0.00971
+        },
+        {
+          "segment_id": "S5_1_109640",
+          "stake_km": 109.64,
+          "score": 0.13968
+        },
+        {
+          "segment_id": "S5_1_109940",
+          "stake_km": 109.94,
+          "score": 0.20557
+        },
+        {
+          "segment_id": "S5_1_110240",
+          "stake_km": 110.24,
+          "score": 0.38243
+        },
+        {
+          "segment_id": "S5_1_110540",
+          "stake_km": 110.54,
+          "score": 0.1615
+        },
+        {
+          "segment_id": "S5_1_110840",
+          "stake_km": 110.84,
+          "score": 0.21708
+        },
+        {
+          "segment_id": "S5_1_111140",
+          "stake_km": 111.14,
+          "score": 0.14731
+        },
+        {
+          "segment_id": "S5_1_111440",
+          "stake_km": 111.44,
+          "score": 0.25902
+        },
+        {
+          "segment_id": "S5_1_111740",
+          "stake_km": 111.74,
+          "score": 0.09977
+        },
+        {
+          "segment_id": "S5_1_112040",
+          "stake_km": 112.04,
+          "score": 0.14148
+        },
+        {
+          "segment_id": "S5_1_112340",
+          "stake_km": 112.34,
+          "score": 0.21334
+        },
+        {
+          "segment_id": "S5_1_112640",
+          "stake_km": 112.64,
+          "score": 0.09757
+        },
+        {
+          "segment_id": "S5_1_112940",
+          "stake_km": 112.94,
+          "score": 0.08828
+        },
+        {
+          "segment_id": "S5_1_113240",
+          "stake_km": 113.24,
+          "score": 0.04772
+        },
+        {
+          "segment_id": "S5_1_113540",
+          "stake_km": 113.54,
+          "score": 0.18388
+        },
+        {
+          "segment_id": "S5_1_113840",
+          "stake_km": 113.84,
+          "score": 0.20735
+        },
+        {
+          "segment_id": "S5_1_114140",
+          "stake_km": 114.14,
+          "score": 0.08935
+        },
+        {
+          "segment_id": "S5_1_114440",
+          "stake_km": 114.44,
+          "score": 0.17568
+        },
+        {
+          "segment_id": "S5_1_114740",
+          "stake_km": 114.74,
+          "score": 0.18835
+        },
+        {
+          "segment_id": "S5_1_115040",
+          "stake_km": 115.04,
+          "score": 0.13468
+        },
+        {
+          "segment_id": "S5_1_115340",
+          "stake_km": 115.34,
+          "score": 0.17427
+        },
+        {
+          "segment_id": "S5_1_115640",
+          "stake_km": 115.64,
+          "score": 0.23668
+        },
+        {
+          "segment_id": "S5_1_115940",
+          "stake_km": 115.94,
+          "score": 0.09304
+        },
+        {
+          "segment_id": "S5_1_116240",
+          "stake_km": 116.24,
+          "score": 0.17898
+        },
+        {
+          "segment_id": "S5_1_116540",
+          "stake_km": 116.54,
+          "score": 0.17311
+        },
+        {
+          "segment_id": "S5_1_116840",
+          "stake_km": 116.84,
+          "score": 0.23346
+        },
+        {
+          "segment_id": "S5_1_117140",
+          "stake_km": 117.14,
+          "score": 0.17495
+        },
+        {
+          "segment_id": "S5_1_117440",
+          "stake_km": 117.44,
+          "score": 0.22132
+        },
+        {
+          "segment_id": "S5_1_117740",
+          "stake_km": 117.74,
+          "score": 0.2232
+        },
+        {
+          "segment_id": "S5_1_118040",
+          "stake_km": 118.04,
+          "score": 0.18109
+        },
+        {
+          "segment_id": "S5_1_118340",
+          "stake_km": 118.34,
+          "score": 0.18103
+        },
+        {
+          "segment_id": "S5_1_118640",
+          "stake_km": 118.64,
+          "score": 0.43988
+        },
+        {
+          "segment_id": "S5_1_118940",
+          "stake_km": 118.94,
+          "score": 0.09097
+        },
+        {
+          "segment_id": "S5_1_119240",
+          "stake_km": 119.24,
+          "score": 0.10073
+        },
+        {
+          "segment_id": "S5_1_119540",
+          "stake_km": 119.54,
+          "score": 0.18083
+        },
+        {
+          "segment_id": "S5_1_119840",
+          "stake_km": 119.84,
+          "score": 0.17637
+        },
+        {
+          "segment_id": "S5_1_120140",
+          "stake_km": 120.14,
+          "score": 0.20886
+        },
+        {
+          "segment_id": "S5_1_120440",
+          "stake_km": 120.44,
+          "score": 0.23858
+        },
+        {
+          "segment_id": "S5_1_120740",
+          "stake_km": 120.74,
+          "score": 0.21998
+        },
+        {
+          "segment_id": "S5_1_121040",
+          "stake_km": 121.04,
+          "score": 0.1865
+        },
+        {
+          "segment_id": "S5_1_121340",
+          "stake_km": 121.34,
+          "score": 0.18833
+        },
+        {
+          "segment_id": "S5_1_121640",
+          "stake_km": 121.64,
+          "score": 0.18358
+        },
+        {
+          "segment_id": "S5_1_121940",
+          "stake_km": 121.94,
+          "score": 0.18833
+        },
+        {
+          "segment_id": "S5_1_122240",
+          "stake_km": 122.24,
+          "score": 0.21324
+        },
+        {
+          "segment_id": "S5_1_122540",
+          "stake_km": 122.54,
+          "score": 0.17913
+        },
+        {
+          "segment_id": "S5_1_122840",
+          "stake_km": 122.84,
+          "score": 0.18412
+        },
+        {
+          "segment_id": "S5_1_123140",
+          "stake_km": 123.14,
+          "score": 0.2164
+        },
+        {
+          "segment_id": "S5_1_123440",
+          "stake_km": 123.44,
+          "score": 0.23543
+        },
+        {
+          "segment_id": "S5_1_123740",
+          "stake_km": 123.74,
+          "score": 0.1793
+        },
+        {
+          "segment_id": "S5_1_124100",
+          "stake_km": 124.1,
+          "score": 0.05422
+        },
+        {
+          "segment_id": "S5_1_124400",
+          "stake_km": 124.4,
+          "score": 0.2793
+        },
+        {
+          "segment_id": "S5_1_124700",
+          "stake_km": 124.7,
+          "score": 0.09947
+        },
+        {
+          "segment_id": "S5_1_125000",
+          "stake_km": 125.0,
+          "score": 0.09703
+        },
+        {
+          "segment_id": "S5_1_125300",
+          "stake_km": 125.3,
+          "score": 0.15985
+        },
+        {
+          "segment_id": "S5_1_125600",
+          "stake_km": 125.6,
+          "score": 0.27564
+        },
+        {
+          "segment_id": "S5_1_125900",
+          "stake_km": 125.9,
+          "score": 0.1007
+        },
+        {
+          "segment_id": "S5_1_126200",
+          "stake_km": 126.2,
+          "score": 0.15136
+        },
+        {
+          "segment_id": "S5_1_126500",
+          "stake_km": 126.5,
+          "score": 0.30736
+        },
+        {
+          "segment_id": "S5_1_126800",
+          "stake_km": 126.8,
+          "score": 0.17595
+        },
+        {
+          "segment_id": "S5_1_127100",
+          "stake_km": 127.1,
+          "score": 0.26352
+        },
+        {
+          "segment_id": "S5_1_127400",
+          "stake_km": 127.4,
+          "score": 0.30886
+        },
+        {
+          "segment_id": "S5_1_127700",
+          "stake_km": 127.7,
+          "score": 0.33842
+        },
+        {
+          "segment_id": "S5_1_128000",
+          "stake_km": 128.0,
+          "score": 0.18689
+        },
+        {
+          "segment_id": "S5_1_128300",
+          "stake_km": 128.3,
+          "score": 0.21995
+        },
+        {
+          "segment_id": "S5_1_128600",
+          "stake_km": 128.6,
+          "score": 0.2481
+        },
+        {
+          "segment_id": "S5_1_128900",
+          "stake_km": 128.9,
+          "score": 0.13341
+        },
+        {
+          "segment_id": "S5_1_129200",
+          "stake_km": 129.2,
+          "score": 0.30858
+        },
+        {
+          "segment_id": "S5_1_129500",
+          "stake_km": 129.5,
+          "score": 0.23165
+        },
+        {
+          "segment_id": "S5_1_129800",
+          "stake_km": 129.8,
+          "score": 0.34113
+        },
+        {
+          "segment_id": "S5_1_130100",
+          "stake_km": 130.1,
+          "score": 0.31002
+        },
+        {
+          "segment_id": "S5_1_130400",
+          "stake_km": 130.4,
+          "score": 0.19074
+        },
+        {
+          "segment_id": "S5_1_130700",
+          "stake_km": 130.7,
+          "score": 0.22039
+        },
+        {
+          "segment_id": "S5_1_131000",
+          "stake_km": 131.0,
+          "score": 0.22036
+        },
+        {
+          "segment_id": "S5_1_131300",
+          "stake_km": 131.3,
+          "score": 0.18719
+        },
+        {
+          "segment_id": "S5_1_131600",
+          "stake_km": 131.6,
+          "score": 0.28006
+        },
+        {
+          "segment_id": "S5_1_131900",
+          "stake_km": 131.9,
+          "score": 0.29368
+        },
+        {
+          "segment_id": "S5_1_132200",
+          "stake_km": 132.2,
+          "score": 0.21143
+        },
+        {
+          "segment_id": "S5_1_132500",
+          "stake_km": 132.5,
+          "score": 0.28731
+        },
+        {
+          "segment_id": "S5_1_132800",
+          "stake_km": 132.8,
+          "score": 0.15307
+        },
+        {
+          "segment_id": "S5_1_133100",
+          "stake_km": 133.1,
+          "score": 0.27876
+        },
+        {
+          "segment_id": "S5_1_133400",
+          "stake_km": 133.4,
+          "score": 0.15245
+        },
+        {
+          "segment_id": "S5_1_133700",
+          "stake_km": 133.7,
+          "score": 0.27954
+        },
+        {
+          "segment_id": "S5_1_134000",
+          "stake_km": 134.0,
+          "score": 0.30486
+        },
+        {
+          "segment_id": "S5_1_134300",
+          "stake_km": 134.3,
+          "score": 0.15764
+        },
+        {
+          "segment_id": "S5_1_134600",
+          "stake_km": 134.6,
+          "score": 0.30356
+        },
+        {
+          "segment_id": "S5_1_134900",
+          "stake_km": 134.9,
+          "score": 0.25051
+        },
+        {
+          "segment_id": "S5_1_135200",
+          "stake_km": 135.2,
+          "score": 0.25913
+        },
+        {
+          "segment_id": "S5_1_135500",
+          "stake_km": 135.5,
+          "score": 0.27622
+        }
+      ]
+    }
+  ],
+  "watchlist": [
+    {
+      "segment_id": "G9411_1_137770",
+      "time": "2025-11-05 14:40:00",
+      "road_code": "G9411",
+      "direction_code": 1,
+      "stake_m": 137770.0,
+      "stake_km": 137.77,
+      "score": 0.879676,
+      "stage1_score": 0.052002,
+      "calibrated_probability": 0.278781,
+      "risk_level": "高",
+      "candidate_source": "future_event",
+      "review_status": "待复核",
+      "lead_time_min": 30.0,
+      "target_event_id": "GMGS_20251105_001"
+    },
+    {
+      "segment_id": "G9411_1_139070",
+      "time": "2025-11-05 14:40:00",
+      "road_code": "G9411",
+      "direction_code": 1,
+      "stake_m": 139070.0,
+      "stake_km": 139.07,
+      "score": 0.874435,
+      "stage1_score": 0.055472,
+      "calibrated_probability": 0.27042,
+      "risk_level": "高",
+      "candidate_source": "random_negative",
+      "review_status": "待复核",
+      "lead_time_min": -1,
+      "target_event_id": ""
+    },
+    {
+      "segment_id": "G9411_1_137570",
+      "time": "2025-11-05 14:40:00",
+      "road_code": "G9411",
+      "direction_code": 1,
+      "stake_m": 137570.0,
+      "stake_km": 137.57,
+      "score": 0.86966,
+      "stage1_score": 0.052816,
+      "calibrated_probability": 0.263191,
+      "risk_level": "高",
+      "candidate_source": "future_event",
+      "review_status": "待复核",
+      "lead_time_min": 30.0,
+      "target_event_id": "GMGS_20251105_001"
+    },
+    {
+      "segment_id": "G9411_1_137370",
+      "time": "2025-11-05 14:40:00",
+      "road_code": "G9411",
+      "direction_code": 1,
+      "stake_m": 137370.0,
+      "stake_km": 137.37,
+      "score": 0.8652,
+      "stage1_score": 0.106544,
+      "calibrated_probability": 0.256748,
+      "risk_level": "高",
+      "candidate_source": "future_event",
+      "review_status": "待复核",
+      "lead_time_min": 30.0,
+      "target_event_id": "GMGS_20251105_001"
+    },
+    {
+      "segment_id": "G9411_1_137470",
+      "time": "2025-11-05 14:40:00",
+      "road_code": "G9411",
+      "direction_code": 1,
+      "stake_m": 137470.0,
+      "stake_km": 137.47,
+      "score": 0.854892,
+      "stage1_score": 0.053461,
+      "calibrated_probability": 0.242887,
+      "risk_level": "高",
+      "candidate_source": "future_event",
+      "review_status": "待复核",
+      "lead_time_min": 30.0,
+      "target_event_id": "GMGS_20251105_001"
+    },
+    {
+      "segment_id": "G9411_1_137850",
+      "time": "2025-11-05 14:40:00",
+      "road_code": "G9411",
+      "direction_code": 1,
+      "stake_m": 137750.0,
+      "stake_km": 137.75,
+      "score": 0.851985,
+      "stage1_score": 0.194229,
+      "calibrated_probability": 0.239215,
+      "risk_level": "高",
+      "candidate_source": "future_event",
+      "review_status": "待复核",
+      "lead_time_min": 30.0,
+      "target_event_id": "GMGS_20251105_001"
+    },
+    {
+      "segment_id": "G9411_1_137670",
+      "time": "2025-11-05 14:40:00",
+      "road_code": "G9411",
+      "direction_code": 1,
+      "stake_m": 137670.0,
+      "stake_km": 137.67,
+      "score": 0.849917,
+      "stage1_score": 0.010193,
+      "calibrated_probability": 0.236663,
+      "risk_level": "高",
+      "candidate_source": "future_event",
+      "review_status": "待复核",
+      "lead_time_min": 30.0,
+      "target_event_id": "GMGS_20251105_001"
+    },
+    {
+      "segment_id": "G9411_1_137950",
+      "time": "2025-11-05 14:40:00",
+      "road_code": "G9411",
+      "direction_code": 1,
+      "stake_m": 137850.0,
+      "stake_km": 137.85,
+      "score": 0.836657,
+      "stage1_score": 0.238286,
+      "calibrated_probability": 0.221361,
+      "risk_level": "高",
+      "candidate_source": "future_event",
+      "review_status": "待复核",
+      "lead_time_min": 30.0,
+      "target_event_id": "GMGS_20251105_001"
+    },
+    {
+      "segment_id": "G9411_1_137650",
+      "time": "2025-11-05 14:40:00",
+      "road_code": "G9411",
+      "direction_code": 1,
+      "stake_m": 137550.0,
+      "stake_km": 137.55,
+      "score": 0.835789,
+      "stage1_score": 0.233813,
+      "calibrated_probability": 0.220419,
+      "risk_level": "高",
+      "candidate_source": "future_event",
+      "review_status": "待复核",
+      "lead_time_min": 30.0,
+      "target_event_id": "GMGS_20251105_001"
+    },
+    {
+      "segment_id": "G9411_1_137270",
+      "time": "2025-11-05 14:40:00",
+      "road_code": "G9411",
+      "direction_code": 1,
+      "stake_m": 137270.0,
+      "stake_km": 137.27,
+      "score": 0.835728,
+      "stage1_score": 0.010225,
+      "calibrated_probability": 0.220353,
+      "risk_level": "高",
+      "candidate_source": "future_event",
+      "review_status": "待复核",
+      "lead_time_min": 30.0,
+      "target_event_id": "GMGS_20251105_001"
+    },
+    {
+      "segment_id": "G9411_1_137550",
+      "time": "2025-11-05 14:40:00",
+      "road_code": "G9411",
+      "direction_code": 1,
+      "stake_m": 137450.0,
+      "stake_km": 137.45,
+      "score": 0.822502,
+      "stage1_score": 0.265402,
+      "calibrated_probability": 0.206813,
+      "risk_level": "高",
+      "candidate_source": "future_event",
+      "review_status": "待复核",
+      "lead_time_min": 30.0,
+      "target_event_id": "GMGS_20251105_001"
+    },
+    {
+      "segment_id": "G9411_1_145400",
+      "time": "2025-11-05 14:40:00",
+      "road_code": "G9411",
+      "direction_code": 1,
+      "stake_m": 137470.0,
+      "stake_km": 137.47,
+      "score": 0.800512,
+      "stage1_score": 0.278562,
+      "calibrated_probability": 0.18717,
+      "risk_level": "高",
+      "candidate_source": "future_event",
+      "review_status": "待复核",
+      "lead_time_min": 30.0,
+      "target_event_id": "GMGS_20251105_001"
+    },
+    {
+      "segment_id": "G9411_1_145300",
+      "time": "2025-11-05 14:40:00",
+      "road_code": "G9411",
+      "direction_code": 1,
+      "stake_m": 137570.0,
+      "stake_km": 137.57,
+      "score": 0.792784,
+      "stage1_score": 0.278634,
+      "calibrated_probability": 0.180983,
+      "risk_level": "中",
+      "candidate_source": "future_event",
+      "review_status": "待复核",
+      "lead_time_min": 30.0,
+      "target_event_id": "GMGS_20251105_001"
+    },
+    {
+      "segment_id": "G9411_1_145200",
+      "time": "2025-11-05 14:40:00",
+      "road_code": "G9411",
+      "direction_code": 1,
+      "stake_m": 137670.0,
+      "stake_km": 137.67,
+      "score": 0.776828,
+      "stage1_score": 0.269201,
+      "calibrated_probability": 0.1692,
+      "risk_level": "中",
+      "candidate_source": "future_event",
+      "review_status": "待复核",
+      "lead_time_min": 30.0,
+      "target_event_id": "GMGS_20251105_001"
+    },
+    {
+      "segment_id": "G9411_1_137750",
+      "time": "2025-11-05 14:40:00",
+      "road_code": "G9411",
+      "direction_code": 1,
+      "stake_m": 137650.0,
+      "stake_km": 137.65,
+      "score": 0.749871,
+      "stage1_score": 0.249175,
+      "calibrated_probability": 0.151836,
+      "risk_level": "中",
+      "candidate_source": "future_event",
+      "review_status": "待复核",
+      "lead_time_min": 30.0,
+      "target_event_id": "GMGS_20251105_001"
+    },
+    {
+      "segment_id": "G9411_1_137450",
+      "time": "2025-11-05 14:40:00",
+      "road_code": "G9411",
+      "direction_code": 1,
+      "stake_m": 137350.0,
+      "stake_km": 137.35,
+      "score": 0.727054,
+      "stage1_score": 0.108043,
+      "calibrated_probability": 0.139154,
+      "risk_level": "中",
+      "candidate_source": "future_event",
+      "review_status": "待复核",
+      "lead_time_min": 30.0,
+      "target_event_id": "GMGS_20251105_001"
+    },
+    {
+      "segment_id": "G9411_1_145500",
+      "time": "2025-11-05 14:40:00",
+      "road_code": "G9411",
+      "direction_code": 1,
+      "stake_m": 137370.0,
+      "stake_km": 137.37,
+      "score": 0.711402,
+      "stage1_score": 0.278464,
+      "calibrated_probability": 0.131327,
+      "risk_level": "中",
+      "candidate_source": "future_event",
+      "review_status": "待复核",
+      "lead_time_min": 30.0,
+      "target_event_id": "GMGS_20251105_001"
+    },
+    {
+      "segment_id": "G9411_1_145600",
+      "time": "2025-11-05 14:40:00",
+      "road_code": "G9411",
+      "direction_code": 1,
+      "stake_m": 137270.0,
+      "stake_km": 137.27,
+      "score": 0.685096,
+      "stage1_score": 0.239679,
+      "calibrated_probability": 0.119504,
+      "risk_level": "中",
+      "candidate_source": "future_event",
+      "review_status": "待复核",
+      "lead_time_min": 30.0,
+      "target_event_id": "GMGS_20251105_001"
+    },
+    {
+      "segment_id": "G9411_1_145100",
+      "time": "2025-11-05 14:40:00",
+      "road_code": "G9411",
+      "direction_code": 1,
+      "stake_m": 137770.0,
+      "stake_km": 137.77,
+      "score": 0.660103,
+      "stage1_score": 0.266605,
+      "calibrated_probability": 0.109566,
+      "risk_level": "中",
+      "candidate_source": "future_event",
+      "review_status": "待复核",
+      "lead_time_min": 30.0,
+      "target_event_id": "GMGS_20251105_001"
+    },
+    {
+      "segment_id": "G9411_1_137350",
+      "time": "2025-11-05 14:40:00",
+      "road_code": "G9411",
+      "direction_code": 1,
+      "stake_m": 137250.0,
+      "stake_km": 137.25,
+      "score": 0.627628,
+      "stage1_score": 0.109145,
+      "calibrated_probability": 0.098187,
+      "risk_level": "中",
+      "candidate_source": "future_event",
+      "review_status": "待复核",
+      "lead_time_min": 30.0,
+      "target_event_id": "GMGS_20251105_001"
+    },
+    {
+      "segment_id": "S5_1_118740",
+      "time": "2025-11-05 14:40:00",
+      "road_code": "S5",
+      "direction_code": 1,
+      "stake_m": 118740.0,
+      "stake_km": 118.74,
+      "score": 0.168706,
+      "stage1_score": 0.44025,
+      "calibrated_probability": 0.017201,
+      "risk_level": "低",
+      "candidate_source": "uncertain_negative",
+      "review_status": "观察",
+      "lead_time_min": -1,
+      "target_event_id": ""
+    }
+  ],
+  "cases": [
+    {
+      "case": 1,
+      "event_id": "GMGS_20251105_001",
+      "case_role": "detected_high_confidence",
+      "outcome": "Detected",
+      "mapped_event_time": "2025-11-05 15:10:00",
+      "mapped_segment_id": "G9411_1_137650",
+      "mapped_stake_m": 137550.0,
+      "accident_type": "Rollover",
+      "severity": "轻微事故",
+      "weather": "Clear",
+      "traffic_volume": 1176,
+      "median_speed_km_h": 23.76298755186722,
+      "upstream_traffic": 102.0,
+      "downstream_traffic": 98.0,
+      "student_peak": 0.9104331616467052,
+      "stage1_peak": 0.4646662243187063,
+      "no_spatial_peak": 0.8819608322384723,
+      "no_temporal_peak": 0.8900623856407701,
+      "lead_time_min": 30.0,
+      "management_actions": "VMS_WARNING, VERIFY, HEAVY_RESCUE, LANE_ISOLATION, LOW_SPEED_WARNING",
+      "human_review_required": true
+    },
+    {
+      "case": 2,
+      "event_id": "GMGS_20251111_001",
+      "case_role": "detected_spatial_dependency",
+      "outcome": "Detected",
+      "mapped_event_time": "2025-11-11 10:35:00",
+      "mapped_segment_id": "S5_0_134090",
+      "mapped_stake_m": 133990.0,
+      "accident_type": "Rollover",
+      "severity": "轻微事故",
+      "weather": "Overcast",
+      "traffic_volume": 696,
+      "median_speed_km_h": 8.031815788,
+      "upstream_traffic": 142.0,
+      "downstream_traffic": 101.0,
+      "student_peak": 0.8154454143967318,
+      "stage1_peak": 0.313495980528703,
+      "no_spatial_peak": 0.5293747152906951,
+      "no_temporal_peak": 0.6598630850546559,
+      "lead_time_min": 30.0,
+      "management_actions": "VMS_WARNING, VERIFY, HEAVY_RESCUE, LANE_ISOLATION, QUEUE_PROPAGATION, LOW_SPEED_WARNING",
+      "human_review_required": true
+    },
+    {
+      "case": 3,
+      "event_id": "GMGS_20251130_001",
+      "case_role": "missed_event",
+      "outcome": "Missed",
+      "mapped_event_time": "2025-11-30 00:40:00",
+      "mapped_segment_id": "G9411_1_134885",
+      "mapped_stake_m": 134885.0,
+      "accident_type": "Collision",
+      "severity": "轻微事故",
+      "weather": "Overcast",
+      "traffic_volume": 528,
+      "median_speed_km_h": 127.8227848,
+      "upstream_traffic": 50.0,
+      "downstream_traffic": 46.0,
+      "student_peak": 0.4074894251369828,
+      "stage1_peak": 0.7865739458916171,
+      "no_spatial_peak": 0.3041457835012903,
+      "no_temporal_peak": 0.3140535403169046,
+      "lead_time_min": null,
+      "management_actions": "VMS_WARNING, VERIFY, QUEUE_TAIL, LANE_CONTROL",
+      "human_review_required": true
+    }
+  ],
+  "selected_case": {
+    "case": 1,
+    "event_id": "GMGS_20251105_001",
+    "case_role": "detected_high_confidence",
+    "outcome": "Detected",
+    "mapped_event_time": "2025-11-05 15:10:00",
+    "mapped_segment_id": "G9411_1_137650",
+    "mapped_stake_m": 137550.0,
+    "accident_type": "Rollover",
+    "severity": "轻微事故",
+    "weather": "Clear",
+    "traffic_volume": 1176,
+    "median_speed_km_h": 23.76298755186722,
+    "upstream_traffic": 102.0,
+    "downstream_traffic": 98.0,
+    "student_peak": 0.9104331616467052,
+    "stage1_peak": 0.4646662243187063,
+    "no_spatial_peak": 0.8819608322384723,
+    "no_temporal_peak": 0.8900623856407701,
+    "lead_time_min": 30.0,
+    "management_actions": "VMS_WARNING, VERIFY, HEAVY_RESCUE, LANE_ISOLATION, LOW_SPEED_WARNING",
+    "human_review_required": true,
+    "decision": {
+      "decision_time": "2025-11-05 15:05:00",
+      "alert": true,
+      "supervisory_score": 0.9104331616467051,
+      "threshold": 0.6,
+      "predicted_horizon": "within 30 minutes",
+      "lead_time_to_recorded_event_min": 5.0
+    },
+    "location": {
+      "segment_id": "G9411_1_137370",
+      "road_code": "G9411",
+      "direction_code": 1,
+      "stake_m": 137370.0,
+      "upstream_downstream_orientation_assumption": "direction 1 follows increasing stake; direction 0 follows decreasing stake"
+    },
+    "memory": {
+      "current_stage1_probability": 0.2242036901589929,
+      "past_30min": {
+        "lag_5min": 0.0488260964345333,
+        "lag_30min": 0.1593537537846308,
+        "mean": 0.1208390075887781,
+        "change": 0.0648499363743621
+      },
+      "directed_spatial_context": {
+        "upstream_mean_300m": 0.151508421584695,
+        "upstream_max_300m": 0.3202353529128842,
+        "downstream_mean_300m": 0.2121605418735686,
+        "downstream_max_300m": 0.4646662243187063,
+        "neighborhood_max_500m": 0.5032728477666697,
+        "high_risk_cells_500m": 0,
+        "spatial_gradient_600m": 0.0606521202888735
+      }
+    },
+    "type_hypotheses": [
+      {
+        "type": "翻车",
+        "probability": 0.2705501325672329
+      },
+      {
+        "type": "碰撞",
+        "probability": 0.26203743283925857
+      },
+      {
+        "type": "其他",
+        "probability": 0.18611387604648866
+      }
+    ],
+    "severity_gate": {
+      "predicted_severity_band": "potentially_general_or_higher",
+      "serious_flags": [
+        "high-consequence accident type"
+      ],
+      "human_review_required": true,
+      "reason": "Only 7 of 306 historical events are general/major; automated severity classification is not statistically reliable."
+    },
+    "management_measures": [
+      "Activate upstream variable-message warning and publish the affected direction and kilometre range.",
+      "Verify the event by CCTV or patrol before escalating the response level.",
+      "Dispatch heavy rescue and lifting capability and inspect cargo leakage.",
+      "Temporarily isolate adjacent lanes until vehicle stability and debris are assessed.",
+      "Deploy low-speed queue warnings because the observed median speed indicates shockwave risk."
+    ]
+  },
+  "default_features": {
+    "v4_model_accident_probability": 0.2242036901589929,
+    "current_risk_probability": 0.8305318040990605,
+    "collision_risk_value": 0.8305318040990605,
+    "risk_lag_5m": 0.0488260964345333,
+    "risk_lag_30m": 0.1593537537846308,
+    "risk_mean_past_30m": 0.12083900758877818,
+    "risk_change_5m": 0.1753775937244596,
+    "risk_change_30m": 0.06484993637436212,
+    "upstream_mean_300m": 0.15150842158469505,
+    "upstream_max_300m": 0.3202353529128842,
+    "downstream_mean_300m": 0.21216054187356861,
+    "downstream_max_300m": 0.4646662243187063,
+    "neighborhood_mean_500m": 0.24019600012843204,
+    "neighborhood_max_500m": 0.5032728477666697,
+    "neighborhood_std_500m": 0.1906539952319873,
+    "high_risk_cells_500m": 0.0,
+    "spatial_gradient_600m": 0.06065212028887357,
+    "center_neighbor_contrast": 0.04236920842986108,
+    "direction_code": 1.0,
+    "road_is_s5": 0.0,
+    "hour_sin": -0.7071067811865471,
+    "hour_cos": -0.7071067811865479
+  },
+  "policy_library": {
+    "policy_version": "1.0",
+    "principles": [
+      "Verify by CCTV or patrol before irreversible control.",
+      "Protect the upstream queue tail before optimizing throughput.",
+      "Escalate weather, fire, rollover, injury, and hazardous-material scenarios.",
+      "Every recommendation includes location, direction, trigger evidence, and review status."
+    ],
+    "type_specific_examples": {
+      "其他": [
+        "Activate upstream variable-message warning and publish the affected direction and kilometre range.",
+        "Verify the event by CCTV or patrol before escalating the response level.",
+        "Deploy low-speed queue warnings because the observed median speed indicates shockwave risk."
+      ],
+      "刮擦": [
+        "Activate upstream variable-message warning and publish the affected direction and kilometre range.",
+        "Verify the event by CCTV or patrol before escalating the response level.",
+        "Apply weather-adaptive speed control and increase the recommended following distance.",
+        "Strengthen visibility and skid-risk warnings at upstream gantries.",
+        "Protect the incident tail with an upstream buffer and prevent secondary collisions.",
+        "Coordinate lane control and guide traffic to the available lanes before the queue reaches the upstream detector.",
+        "Use ramp or entrance-flow control to prevent additional demand from entering the congested section."
+      ],
+      "失火": [
+        "Activate upstream variable-message warning and publish the affected direction and kilometre range.",
+        "Verify the event by CCTV or patrol before escalating the response level.",
+        "Dispatch fire response and establish an ignition and hazardous-material exclusion zone.",
+        "Stop traffic upstream when smoke or thermal risk affects visibility or evacuation.",
+        "Use ramp or entrance-flow control to prevent additional demand from entering the congested section.",
+        "Deploy low-speed queue warnings because the observed median speed indicates shockwave risk."
+      ],
+      "碰撞": [
+        "Activate upstream variable-message warning and publish the affected direction and kilometre range.",
+        "Verify the event by CCTV or patrol before escalating the response level.",
+        "Apply weather-adaptive speed control and increase the recommended following distance.",
+        "Strengthen visibility and skid-risk warnings at upstream gantries.",
+        "Protect the incident tail with an upstream buffer and prevent secondary collisions.",
+        "Coordinate lane control and guide traffic to the available lanes before the queue reaches the upstream detector.",
+        "Deploy low-speed queue warnings because the observed median speed indicates shockwave risk."
+      ],
+      "翻车": [
+        "Activate upstream variable-message warning and publish the affected direction and kilometre range.",
+        "Verify the event by CCTV or patrol before escalating the response level.",
+        "Dispatch heavy rescue and lifting capability and inspect cargo leakage.",
+        "Temporarily isolate adjacent lanes until vehicle stability and debris are assessed.",
+        "Use ramp or entrance-flow control to prevent additional demand from entering the congested section.",
+        "Treat the upstream-downstream imbalance as queue formation and extend the warning area upstream."
+      ],
+      "翻车,碰撞": [
+        "Activate upstream variable-message warning and publish the affected direction and kilometre range.",
+        "Verify the event by CCTV or patrol before escalating the response level.",
+        "Apply weather-adaptive speed control and increase the recommended following distance.",
+        "Strengthen visibility and skid-risk warnings at upstream gantries.",
+        "Dispatch heavy rescue and lifting capability and inspect cargo leakage.",
+        "Temporarily isolate adjacent lanes until vehicle stability and debris are assessed."
+      ],
+      "追尾": [
+        "Activate upstream variable-message warning and publish the affected direction and kilometre range.",
+        "Verify the event by CCTV or patrol before escalating the response level.",
+        "Apply weather-adaptive speed control and increase the recommended following distance.",
+        "Strengthen visibility and skid-risk warnings at upstream gantries.",
+        "Protect the incident tail with an upstream buffer and prevent secondary collisions.",
+        "Coordinate lane control and guide traffic to the available lanes before the queue reaches the upstream detector."
+      ]
+    },
+    "severity_gate": {
+      "轻微事故": "operator confirmation",
+      "一般事故": "mandatory supervisor review",
+      "重大事故": "mandatory emergency-command review"
+    }
+  },
+  "model": {
+    "student_features": [
+      "v4_model_accident_probability",
+      "current_risk_probability",
+      "collision_risk_value",
+      "risk_lag_5m",
+      "risk_lag_30m",
+      "risk_mean_past_30m",
+      "risk_change_5m",
+      "risk_change_30m",
+      "upstream_mean_300m",
+      "upstream_max_300m",
+      "downstream_mean_300m",
+      "downstream_max_300m",
+      "neighborhood_mean_500m",
+      "neighborhood_max_500m",
+      "neighborhood_std_500m",
+      "high_risk_cells_500m",
+      "spatial_gradient_600m",
+      "center_neighbor_contrast",
+      "direction_code",
+      "road_is_s5",
+      "hour_sin",
+      "hour_cos"
+    ],
+    "student_feature_count": 22,
+    "type_model": {
+      "test_rows": 23,
+      "accuracy": 0.6086956521739131,
+      "balanced_accuracy": 0.4138888888888889,
+      "macro_f1": 0.42666666666666664,
+      "weighted_f1": 0.5971014492753624,
+      "classes": [
+        "其他",
+        "刮擦",
+        "失火",
+        "碰撞",
+        "翻车",
+        "追尾"
+      ],
+      "classification_report": {
+        "其他": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 1.0
+        },
+        "失火": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 2.0
+        },
+        "碰撞": {
+          "precision": 0.5833333333333334,
+          "recall": 0.7777777777777778,
+          "f1-score": 0.6666666666666666,
+          "support": 9.0
+        },
+        "翻车": {
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1-score": 0.8,
+          "support": 3.0
+        },
+        "追尾": {
+          "precision": 0.7142857142857143,
+          "recall": 0.625,
+          "f1-score": 0.6666666666666666,
+          "support": 8.0
+        },
+        "accuracy": 0.6086956521739131,
+        "macro avg": {
+          "precision": 0.45952380952380956,
+          "recall": 0.4138888888888889,
+          "f1-score": 0.42666666666666664,
+          "support": 23.0
+        },
+        "weighted avg": {
+          "precision": 0.6071428571428572,
+          "recall": 0.6086956521739131,
+          "f1-score": 0.5971014492753624,
+          "support": 23.0
+        }
+      },
+      "model_file_mb": 1.3001031875610352,
+      "mean_test_batch_latency_ms": 26.507620001211762,
+      "python_peak_memory_mb": 0.17042064666748047,
+      "train_rows": 230,
+      "validation_rows": 53,
+      "test_date_min": "2025-11-01 19:01:00",
+      "test_date_max": "2025-12-20 19:08:00",
+      "teacher_seed_rows": 1306,
+      "severity_model_status": "not fitted: 299/306 events are minor; general/major severity must use a conservative escalation gate and human review."
+    },
+    "memory_packet": {
+      "confirmation_case_count": 40,
+      "candidate_feature_count": 54,
+      "mean_full_enriched_packet_bytes": 1912.0,
+      "mean_compact_memory_packet_bytes": 821.475,
+      "median_full_enriched_packet_bytes": 1915.0,
+      "median_compact_memory_packet_bytes": 822.0,
+      "mean_packet_byte_reduction": 0.5703582635983264,
+      "approximate_full_packet_tokens_at_4_bytes_per_token": 478.0,
+      "approximate_compact_packet_tokens_at_4_bytes_per_token": 205.36875,
+      "token_estimate_boundary": "The 4-byte/token conversion is a transparent payload-size approximation, not a tokenizer-specific measurement."
+    },
+    "retained_memory_fields": {
+      "temporal": [
+        "risk_lag_5m",
+        "risk_lag_30m",
+        "risk_mean_past_30m",
+        "risk_change_5m",
+        "risk_change_30m"
+      ],
+      "directed_spatial": [
+        "upstream_mean_300m",
+        "upstream_max_300m",
+        "downstream_mean_300m",
+        "downstream_max_300m",
+        "neighborhood_max_500m",
+        "neighborhood_std_500m",
+        "spatial_gradient_600m",
+        "center_neighbor_contrast"
+      ],
+      "decision": [
+        "student_supervisory_score",
+        "alert_threshold",
+        "road_direction_location"
+      ]
+    }
+  },
+  "benchmarks": {
+    "models": [
+      {
+        "model": "gpt-oss:20b-cloud",
+        "composite_score": 1.0,
+        "seconds_per_case": 2.436553168253759,
+        "schema_validity": 1.0,
+        "unsupported_action_rate": 0.0,
+        "parameter_size": "20.9B"
+      },
+      {
+        "model": "llama3:latest",
+        "composite_score": 0.7151201355963261,
+        "seconds_per_case": 0.8325677761904589,
+        "schema_validity": 1.0,
+        "unsupported_action_rate": 0.0,
+        "parameter_size": "8.0B"
+      },
+      {
+        "model": "qwen3:32b",
+        "composite_score": 0.9846308541546637,
+        "seconds_per_case": 19.956571250793843,
+        "schema_validity": 1.0,
+        "unsupported_action_rate": 0.0,
+        "parameter_size": "32.8B"
+      },
+      {
+        "model": "qwen3:8b",
+        "composite_score": 0.9944949935426126,
+        "seconds_per_case": 1.0398802000004614,
+        "schema_validity": 1.0,
+        "unsupported_action_rate": 0.0,
+        "parameter_size": "8.2B"
+      },
+      {
+        "model": "vicuna:7b",
+        "composite_score": 0.4158704963466869,
+        "seconds_per_case": 0.896943368253507,
+        "schema_validity": 0.6984126984126984,
+        "unsupported_action_rate": 0.30158730158730157,
+        "parameter_size": "7B"
+      }
+    ],
+    "noninferiority": {
+      "small_model": "qwen3:8b",
+      "teacher_model": "qwen3:32b",
+      "paired_cases": 63,
+      "small_composite": 0.9944949935426126,
+      "teacher_composite": 0.9846308541546637,
+      "mean_difference": 0.009864139387948922,
+      "bootstrap_95ci": [
+        0.004457271123937798,
+        0.015958654220559
+      ],
+      "noninferiority_margin": 0.05,
+      "minimum_absolute_composite": 0.8,
+      "noninferior": true,
+      "claim_boundary": "Constrained operational orchestration only; this result does not establish equal general intelligence or equal accident prediction.",
+      "status": "complete"
+    }
+  },
+  "optimization": {
+    "config": {
+      "update_window_minutes": 10,
+      "spatial_zone_m": 500,
+      "candidate_score_minimum": 0.4,
+      "capacities_per_window": {
+        "warning": 8,
+        "patrol": 3,
+        "emergency": 1
+      },
+      "maximum_patrols_per_road": 2,
+      "minimum_patrol_separation_m": 1000,
+      "ranking_alert_threshold": 0.6,
+      "incremental_mitigation": {
+        "warning": 0.1,
+        "patrol": 0.45,
+        "emergency": 0.3
+      },
+      "scenarios": {
+        "loss_cost_ratio_2000": {
+          "accident_loss": 2000.0,
+          "action_cost": {
+            "warning": 1.0,
+            "patrol": 5.0,
+            "emergency": 15.0
+          },
+          "false_alarm_penalty": {
+            "warning": 0.5,
+            "patrol": 3.0,
+            "emergency": 10.0
+          }
+        },
+        "loss_cost_ratio_5000": {
+          "accident_loss": 5000.0,
+          "action_cost": {
+            "warning": 1.0,
+            "patrol": 5.0,
+            "emergency": 15.0
+          },
+          "false_alarm_penalty": {
+            "warning": 0.5,
+            "patrol": 3.0,
+            "emergency": 10.0
+          }
+        },
+        "loss_cost_ratio_10000": {
+          "accident_loss": 10000.0,
+          "action_cost": {
+            "warning": 1.0,
+            "patrol": 5.0,
+            "emergency": 15.0
+          },
+          "false_alarm_penalty": {
+            "warning": 0.5,
+            "patrol": 3.0,
+            "emergency": 10.0
+          }
+        }
+      },
+      "robust_probability_radius": 0.03,
+      "interpretation_boundary": "Accident-loss/action-cost ratios and mitigation rates are normalized sensitivity parameters. Each independent accident contributes loss once, while operational actions are charged per dispatch window. The resulting cost is a decision proxy, not an observed causal intervention effect."
+    },
+    "watchlist_site_count": 44556,
+    "decision_window_count": 7330,
+    "formal_event_count": 23,
+    "best_by_scenario": {
+      "loss_cost_ratio_2000": {
+        "scenario": "loss_cost_ratio_2000",
+        "strategy": "no_action",
+        "site_count": 44556,
+        "event_count": 23,
+        "detected_event_count": 0,
+        "event_recall": 0.0,
+        "patrol_precision": 0.0,
+        "warning_actions": 0,
+        "patrol_actions": 0,
+        "emergency_actions": 0,
+        "false_patrol_actions": 0,
+        "true_patrol_actions": 0,
+        "patrol_actions_per_day": 0.0,
+        "mean_maximum_lead_time_min": null,
+        "realized_normalized_event_cost": 46000.0,
+        "event_cost_reduction_vs_no_action": 0.0
+      },
+      "loss_cost_ratio_5000": {
+        "scenario": "loss_cost_ratio_5000",
+        "strategy": "robust_binary_program",
+        "site_count": 44556,
+        "event_count": 23,
+        "detected_event_count": 12,
+        "event_recall": 0.5217391304347826,
+        "patrol_precision": 0.02725208175624527,
+        "warning_actions": 1412,
+        "patrol_actions": 1321,
+        "emergency_actions": 609,
+        "false_patrol_actions": 1285,
+        "true_patrol_actions": 36,
+        "patrol_actions_per_day": 21.65573770491803,
+        "mean_maximum_lead_time_min": 24.583333333333332,
+        "realized_normalized_event_cost": 97550.5,
+        "event_cost_reduction_vs_no_action": 0.15173478260869566
+      },
+      "loss_cost_ratio_10000": {
+        "scenario": "loss_cost_ratio_10000",
+        "strategy": "robust_binary_program",
+        "site_count": 44556,
+        "event_count": 23,
+        "detected_event_count": 12,
+        "event_recall": 0.5217391304347826,
+        "patrol_precision": 0.02748414376321353,
+        "warning_actions": 1506,
+        "patrol_actions": 1419,
+        "emergency_actions": 882,
+        "false_patrol_actions": 1380,
+        "true_patrol_actions": 39,
+        "patrol_actions_per_day": 23.262295081967213,
+        "mean_maximum_lead_time_min": 26.25,
+        "realized_normalized_event_cost": 168219.0,
+        "event_cost_reduction_vs_no_action": 0.26861304347826087
+      }
+    },
+    "interpretation_boundary": "Accident-loss/action-cost ratios and mitigation rates are normalized sensitivity parameters. Each independent accident contributes loss once, while operational actions are charged per dispatch window. The resulting cost is a decision proxy, not an observed causal intervention effect.",
+    "site_probability_calibration": {
+      "validation_site_count": 51013,
+      "validation_positive_sites": 369,
+      "validation_positive_rate": 0.007233450296983122,
+      "validation_raw_score_mean": 0.22545337306546082,
+      "validation_calibrated_probability_mean": 0.007247922166617693,
+      "validation_raw_brier": 0.13390939683225178,
+      "validation_calibrated_brier": 0.006851016018145889,
+      "test_site_count": 44556,
+      "test_raw_score_mean": 0.18499073764950308,
+      "test_calibrated_probability_mean": 0.0040560066064841355,
+      "fit_boundary": "The site-level Platt calibrator is fitted only on Sep-Oct validation sites after applying the same candidate, temporal, and spatial aggregation rules. Nov-Dec labels are not used for fitting."
+    },
+    "solver": "Exact enumeration of the nested binary warning-patrol-emergency program under small operational capacities; equivalent feasible set to the stated binary formulation."
+  },
+  "validation": {
+    "overall": "PASS",
+    "checks": [
+      {
+        "check": "required_artifacts_exist",
+        "passed": true,
+        "evidence": {
+          "missing": []
+        }
+      },
+      {
+        "check": "unique_segment_time_grain",
+        "passed": true,
+        "evidence": {
+          "duplicate_rows": 0,
+          "rows": 335010
+        }
+      },
+      {
+        "check": "strictly_future_30_minute_label",
+        "passed": true,
+        "evidence": {
+          "positive_rows": 13185,
+          "invalid_lead_rows": 0,
+          "invalid_event_id_rows": 0,
+          "lead_min": 5.0,
+          "lead_max": 30.0
+        }
+      },
+      {
+        "check": "same_road_direction_within_300m",
+        "passed": true,
+        "evidence": {
+          "unmatched_or_out_of_scope_rows": 0,
+          "maximum_distance_m": 300.0
+        }
+      },
+      {
+        "check": "lead_time_recomputed_from_event_time",
+        "passed": true,
+        "evidence": {
+          "mismatched_rows": 0
+        }
+      },
+      {
+        "check": "blocked_time_splits_are_disjoint",
+        "passed": true,
+        "evidence": {
+          "train": [
+            1,
+            8
+          ],
+          "validation": [
+            9,
+            10
+          ],
+          "test": [
+            11,
+            12
+          ]
+        }
+      },
+      {
+        "check": "student_test_metrics_recomputed",
+        "passed": true,
+        "evidence": {
+          "reported_threshold": 0.6,
+          "precision": 0.13196339701396692,
+          "recall": 0.6523809523809524,
+          "f1": 0.21952196554947256,
+          "roc_auc": 0.9124092041480949,
+          "pr_auc": 0.13963866337082512,
+          "false_positive_count": 5407
+        }
+      },
+      {
+        "check": "event_recall_recomputed",
+        "passed": true,
+        "evidence": {
+          "event_count": 23,
+          "event_recall": 0.9130434782608695
+        }
+      },
+      {
+        "check": "student_model_loadable",
+        "passed": true,
+        "evidence": {
+          "model_type": "LGBMRegressor",
+          "score_api": "predict (distilled continuous supervision score)"
+        }
+      },
+      {
+        "check": "publication_figure_dimensions",
+        "passed": true,
+        "evidence": {
+          "png_count": 16,
+          "invalid": []
+        }
+      },
+      {
+        "check": "notebook_executed_without_errors",
+        "passed": true,
+        "evidence": {
+          "executed_code_cells": 7,
+          "error_cells": []
+        }
+      },
+      {
+        "check": "python_sources_compile",
+        "passed": true,
+        "evidence": {
+          "files_checked": 35,
+          "errors": []
+        }
+      },
+      {
+        "check": "portable_report_packaged",
+        "passed": true,
+        "evidence": {
+          "html_bytes": 452646,
+          "block_count": 18,
+          "package_validation": "passed",
+          "browser_verification": "structural_only (Chromium unavailable)"
+        }
+      }
+    ]
+  },
+  "boundaries": [
+    "监督分数用于候选复核，不等同于事故已发生的概率判定。",
+    "事故类型仅为假设，六分类测试准确率为60.9%，必须人工复核。",
+    "严重程度样本高度失衡，系统不执行自动严重程度定级。",
+    "处置建议来自授权政策库，不会直接下发至生产设备。",
+    "优化成本和缓解率是敏感性分析参数，不代表已观测的因果效果。"
+  ],
+  "evidence": {
+    "source": "D:\\数据备份\\陈总_实验数据\\文件对齐\\大模型监督\\2大模型构建及管理",
+    "snapshot_file": "results/tables/dashboard_spatial_risk_snapshot_20251105_1440.csv",
+    "prediction_file": "results/tables/confirmation_model_test_predictions.csv",
+    "model_manifest": "models/confirmation_model_manifest.json",
+    "frozen_status": "19/19 checks passed; 249 artifacts frozen"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "project_name": "Causal Spatiotemporal Supervisor for Expressway Accident Management",
+  "raw_time_step_minutes": 5,
+  "management_update_minutes": 10,
+  "prediction_horizon_minutes": 30,
+  "positive_spatial_radius_m": 300,
+  "spatial_context_radius_m": 500,
+  "alert_threshold_minimum": 0.6,
+  "hard_negative_threshold": 0.6,
+  "hard_negatives_per_day": 600,
+  "uncertain_negatives_per_day": 200,
+  "random_negatives_per_day": 200,
+  "train_end": "2025-08-31 23:59:59",
+  "validation_end": "2025-10-31 23:59:59",
+  "test_end": "2025-12-31 23:59:59",
+  "random_seed": 20260730,
+  "direction_assumption": {
+    "1": "travel follows increasing stake",
+    "0": "travel follows decreasing stake"
+  },
+  "note": "Direction orientation must be confirmed against the operator's road-direction definition before production deployment."
+}
+

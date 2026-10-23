@@ -13,11 +13,6 @@ runtime/*.jsonl
 *.pem
 *.key
 
-# Software-copyright application files contain personal identity material
-软件著作权申请资料/
-专家评审与整改/
-图/
-
 # Local QA and editor artifacts
 *.log
 .vscode/
